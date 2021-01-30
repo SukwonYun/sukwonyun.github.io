@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sukwonyun.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sukwonyun.github.io/" rel="alternate" type="text/html" /><updated>2021-01-30T01:10:55+09:00</updated><id>https://sukwonyun.github.io/feed.xml</id><title type="html">Suk’s</title><subtitle>No challenge, No change.</subtitle><author><name>Sukwon Yun</name><email>tyryey89@gmail.com</email></author><entry><title type="html">[추천시스템] Wide &amp;amp; Deep Learning for Recommender Systems</title><link href="https://sukwonyun.github.io/recommendersystem/WideDeep/" rel="alternate" type="text/html" title="[추천시스템] Wide &amp;amp; Deep Learning for Recommender Systems" /><published>2020-01-20T01:37:28+09:00</published><updated>2020-01-20T01:37:28+09:00</updated><id>https://sukwonyun.github.io/recommendersystem/WideDeep</id><content type="html" xml:base="https://sukwonyun.github.io/recommendersystem/WideDeep/">&lt;p&gt;Cheng, Heng-Tze, et al. “Wide &amp;amp; deep learning for recommender systems.” Proceedings of the 1st workshop on deep learning for recommender systems. 2016.&lt;/p&gt;
+
+&lt;h4 id=&quot;in-short-memorization-wide--generalization-deep&quot;&gt;&lt;em&gt;In short, “Memorization (Wide) + Generalization (Deep)”&lt;/em&gt;&lt;/h4&gt;
+
+&lt;h3 id=&quot;about&quot;&gt;About&lt;/h3&gt;
+
+&lt;p&gt;이 논문은 추천시스템의 Memorization, Generalization 의 장점을 결합한 새로운 학습 방법을 제시해주는 논문이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;abstract&quot;&gt;Abstract&lt;/h3&gt;
+
+&lt;p&gt;Generalization 모델은 적은 수의 인풋을 가진 대규모의 회귀나 분류 문제에 적합하고 Memorization 모델은 외적을 바탕으로 한 효과적이고 설명력이 높은 특성을 가진다.
+이 논문에서는 Wide &amp;amp; Deep Learning 이라는 Wide Linear 모델과 DNN 의 장점만을 결합한 모델을 새롭게 제시한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h3&gt;
+
+&lt;p&gt;추천 시스템은 인풋으로 쿼리(데이터베이스에 정보를 요청하는)와 맥락적인 정보를 가지고 아웃풋으로는 순위가 매겨진 아이템을 가지는 랭킹 시스템이라고 볼 수 있다. 이러한 목적 하에 주로 발생하는 문제는 Memorization 과 Generalization 의 특성을 모두 가져가는 것이다. 간단히 설명하자면, &lt;strong&gt;조류가 날아다니는 사진을 보여준 상황&lt;/strong&gt;에서 아래와 같이 설명할 수 있다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Wide (Memorization)&lt;/strong&gt;: &lt;strong&gt;비둘기는 날 수 있다&lt;/strong&gt;, &lt;strong&gt;참새는 날 수 있다&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Deep (Generalization)&lt;/strong&gt;: &lt;strong&gt;날개를 가진 동물은 날 수 있다&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Wide &amp;amp; Deep&lt;/strong&gt;: &lt;strong&gt;‘날개를 가진 동물은 날 수 있지만, 펭귄은 날 수 없다’&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105043795-4d6e9e00-5aa9-11eb-805b-f0a9248b624e.png&quot; width=&quot;200&quot; height=&quot;250&quot; /&gt; &lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105043929-798a1f00-5aa9-11eb-9b49-1962dc8b6210.png&quot; width=&quot;200&quot; height=&quot;250&quot; /&gt; &lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105044095-ab9b8100-5aa9-11eb-9d07-523b7ea10fcc.png&quot; width=&quot;200&quot; height=&quot;250&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;wide-model&quot;&gt;Wide Model&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105060951-4a30dd80-5abc-11eb-995c-214a73c3ddbd.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;먼저 Wide 모델에서는 위와 같이 User feature, Impression feature 그리고 Crossed feature를 input으로 가지게 된다. 유저가 실제로 설치한 여행 앱, ’Priceline’ 을 1이라고 하고, 유저가 관심을 보인 ‘Kayak’ 앱을 1이라고 했을 때 둘을 곱한 1이 Crossed Feature가 된다. 이러한 방식은 1인 경우만 학습을 하기에 유저의 niche 한 특성이 잘 반영되는 한편, User feature, Impression feature 중 하나가 0 이면 Crossed feature 역시 학습이 불가능하다는 한계를 가진다.&lt;/p&gt;
+
+&lt;h4 id=&quot;deep-model&quot;&gt;Deep Model&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105061021-5ae15380-5abc-11eb-88e9-72bbb555adab.png&quot; width=&quot;320&quot; height=&quot;300&quot; /&gt; &lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105061111-79dfe580-5abc-11eb-9673-ee80dec0d90f.png&quot; width=&quot;320&quot; height=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;다음으로 Deep 모델에서는 구체화된 ‘Priceline’, ‘Kayak’ 과 같은 앱이 아닌 ‘Travel’ 이라는 큰 범주 하에서 feature를 구성하게 된다. 이 경우, 위에서 0 이었던 값들이 Dense한 임베딩 공간(오른쪽)으로 옮겨져서 값을 부여받아서 더욱 일반화 된(큰 범주에서) 값을 잘 표현할 수 있게된다. 하지만, 앞서 표현했던 뚜렷한 niche 한 관계는 잘 표현하지 못한다는 단점을 가지게 된다. 이러한 장단점을 잘 표현한 그림은 아래와 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105061144-849a7a80-5abc-11eb-95ca-d5e121b80c8a.png&quot; width=&quot;320&quot; height=&quot;300&quot; /&gt;   &lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105061198-98de7780-5abc-11eb-8d7a-5e6d6e56c9d5.png&quot; width=&quot;320&quot; height=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;먼저 왼쪽은 Deep 모델이 유리한 경우인데, 상대적으로 유사한 가중치를 가질 때 임베딩 공간으로 옮겨지게 되면서 파라미터 수가 줄어드는 것을 확인할 수 있다. 이러한 특성은 추천시스템의 MF에서 SVD와 같은 latent space가 가지는 의미와 일맥상통하고 PCA 특성 또한 함유하고 있다. 반면 오른쪽에서와 같이 Spase하고 niche 할때는 Deep 모델이 상대적으로 불리할 수 있고 같은 임베딩 공간 내에서 서로 다른 클러스터를 밀어내기가 힘들어 상대적으로 덜 유의한 앱을 추천할 가능성을 가지게 된다.&lt;/p&gt;
+
+&lt;p&gt;즉, 정리하면&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dense, similar -&amp;gt; Deep 유리&lt;/li&gt;
+  &lt;li&gt;Sparse, niche -&amp;gt; Wide 유리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-recommender-system-overview&quot;&gt;2. Recommender System Overview&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105073305-3be9be00-5aca-11eb-81af-4d86a8b1437e.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;추천시스템의 개략적인 구조를 살펴보면 위와 같은데, 쿼리를 인풋으로 받아서 유저에게 Item 간 랭크를 매겨 추천해주고 이에 대한 액션과 앞선 쿼리를 로그에 담아 학습하고 다시 랭킹을 메기는 시스템 구조이다.
+이 논문에서는 랭킹을 메기는 과정에서 Wide&amp;amp;Deep 학습 방법을 기반으로 하는 것에 중점을 둔다.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-wide--deep-learning&quot;&gt;3. Wide &amp;amp; Deep Learning&lt;/h3&gt;
+
+&lt;h4 id=&quot;the-wide-component&quot;&gt;The Wide Component&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105074368-98011200-5acb-11eb-9980-307b80445dd8.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Wide 모델에서는 아래와 같은 선형의 관계를 나타내게 되는데, 이때 feature set \(\textbf{x}\) 는 raw input feature와 transformed된 feature로 구성된다.&lt;/p&gt;
+
+\[y = \textbf{w}^T \textbf{x} + b\]
+
+\[where, \textbf{x} = [x_1,x_2,...,x_d],  \textbf{w} = [w_1,w_2,...,w_d],  b = bias\]
+
+&lt;p&gt;이때, raw input과 함께 구성되는 feature는 &lt;em&gt;cross-product transformation&lt;/em&gt; 을 거치게 되는데 아래와 같이 정의된다.&lt;/p&gt;
+
+\[\phi_{k}(\textbf{x}) = \prod_{i=1}^{d}x_{i}^{c_{ki}}, c_{ki} \in \left \{ 0,1 \right\}\]
+
+&lt;p&gt;간단한 예시로는, 다음과 같이 binary한 상황을 가정하면 아래와 같이 표현할 수 있다.&lt;/p&gt;
+
+\[gender = \left [ male, female \right ] = \left [ 1,0 \right ]\]
+
+\[married = \left [ yes, no \right ] = \left [ 1,0 \right ]\]
+
+\[language = \left [ english, koeran \right ] = \left [ 1,0 \right ]\]
+
+&lt;p&gt;이때, user A가 male이고 married 한 상태이고 korean 이면 아래와 같은 벡터를 가지게 된다.&lt;/p&gt;
+
+\[\textbf{x} = \left [ gender, married, language \right ] = \left [ 1,1,0 \right ]\]
+
+&lt;p&gt;이때, transformation \(\phi_{k} \left ( k = 1,2,3 \right)\) 에서 \(k=1\)인 상태가, married와 language의 조합을 나타내는 transformation이라고 한다면,
+\(\phi_{1} \left (\textbf{x} \right )\) 는 아래와 같이 나타낼 수 있다.&lt;/p&gt;
+
+\[\phi_{1} \left (\textbf{x} \right ) = x_1^{c_{11}}x_2^{c_{21}}x_3^{c_{31}} = 1^0 1^1 0^1 = 1\]
+
+&lt;h4 id=&quot;the-deep-component&quot;&gt;The Deep Component&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105074332-8f104080-5acb-11eb-9a91-07e5b6f9f0c3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Deep 모델에서는 순전파의 신경망을 생각하면 되는데, 이때 \(\textbf{a}\)는 Continuous feature와 Categorical feature를 concat하여 input으로 사용한다. Categorical feature는 임베딩을 거쳐 dense한 벡터로 구성되어 합쳐진다.&lt;/p&gt;
+
+\[\textbf{a}^{\left ( l+1 \right )} = f\left (\textbf{W}^{\left ( l \right )}\textbf{a}^{\left ( l \right )}+\textbf{b}^{\left ( l \right )}   \right)\]
+
+&lt;p&gt;이떼, \(l\)은 레이어 번호, \(f\)는 ReLu와 같은 활성화 함수, \(W\)는 가중치 행렬, \(b\)는 편향을 의미한다.&lt;/p&gt;
+
+&lt;h4 id=&quot;joint-training-of-wide--deep-model&quot;&gt;Joint Training of Wide &amp;amp; Deep Model&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105078865-ed402200-5ad1-11eb-820d-b3919a06bb5a.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;최종 모델은 앞선 wide, deep 모델의 특성을 합쳐서 하나의 목적식, prediction으로 표현한다고 볼 수 있다. logistic regression 문제에서 모델의 예측식은 아래와 같다.
+이때, 아웃풋에서 출발하는 역전파를 wide, deep 방향 모두가 전파 받고 모델이 동시에 mini-batch 학습을 하게 된다. 동시에 두 파트가 학습되는 점이 각 모델들이 학습된 이후 최종적으로 합쳐지는 앙상블 모델과 차별화되는 점이다. 실제 Wide &amp;amp; Deep 실험에서는, wide 파트에서는 FTRL + L1 알고리즘을 사용하였고, deep 파트에서는 AdaGrad 를 optimizer로 사용하였다. 아래 식에서 \(P(Y=1 | \textbf{x})\)는 feature vector가 인풋으로 주어졌을 때 실제 특정 앱을 수용할 확률, app acquisition 확률로 이해하면 된다.&lt;/p&gt;
+
+\[P(Y=1 | \textbf{x}) = \sigma\left ( \textbf{w}_{wide}^T\left [ \textbf{x}, \phi\left ( \textbf{x} \right ) \right ] + \textbf{w}_{deep}^T a^{\left ( l_{f} \right )} + b \right)\]
+
+&lt;h3 id=&quot;4-system-implementation&quot;&gt;4. System Implementation&lt;/h3&gt;
+
+&lt;p&gt;앱 추천 시스템의 파이프라인은 아래와 같이 Data Generation, Model Training, Model Serving 3 단계로 구성된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105080633-70627780-5ad4-11eb-893b-3a35e896fb30.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이때, Model training 단계에서 매번 재학습을 방지하기 위해 &lt;strong&gt;warm-starting&lt;/strong&gt;로 이전 모델의 임베딩과 linear 모델 가중치를 새로운 모델에 적용한다는 점도 주목할 만한 점이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;5-experiment-results&quot;&gt;5. Experiment Results&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105080975-ef57b000-5ad4-11eb-94a5-930f01039f6c.png&quot; width=&quot;320&quot; height=&quot;300&quot; /&gt; &lt;img src=&quot;https://user-images.githubusercontent.com/68312164/105080997-f67ebe00-5ad4-11eb-968d-a53b261cfa44.png&quot; width=&quot;320&quot; height=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Wide 모델은 대조군으로 설정하고 Wide &amp;amp; Deep 모델을 실험군으로 설정했을 때, 4% 정도의 수용률 증가를 얻어냈고, online traffic일때 더욱 좋은 퍼포먼스를 보여주었다. 또한 Batch를 더욱 분할하여 진행했을 때, 속도 또한 효과적임을 확인할 수 있었다.&lt;/p&gt;
+
+&lt;h3 id=&quot;6-conclusion&quot;&gt;6. Conclusion&lt;/h3&gt;
+&lt;p&gt;저자는 Factorization Machines(Rendle, Steffen. 2010) 에서 많은 영향을 받았다고 한다. 그리고 FM에서 주 컨셉이었던 임베딩 공간에서의 벡터 내적 대신에 신경망과 결합된 임베딩으로 한층 더 비선형적인 관계까지 확장해나갔다. 이로써 다시 한 번 정리하면, Memorization을 Wide linear model에서 cross product를 통해 이루어 냈고, Generalization을 DNN을 통해 효과적으로 이루어 내어 두 컨셉을 결합해 하나의 통합적인 모델을 제시하였다.&lt;/p&gt;
+
+&lt;h3 id=&quot;세-줄-요약&quot;&gt;세 줄 요약&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Memorization = Wide Linear Model + Cross-product transformation&lt;/li&gt;
+  &lt;li&gt;Generalization = Deep Neural Network&lt;/li&gt;
+  &lt;li&gt;Wide &amp;amp; Deep = Memorization + Generalization&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Cheng, Heng-Tze, et al. “Wide &amp;amp; deep learning for recommender systems.” Proceedings of the 1st workshop on deep learning for recommender systems. 2016.&lt;/li&gt;
+  &lt;li&gt;Wide &amp;amp; Deep Learning: Memorization + Generalization with TensorFlow (TensorFlow Dev Summit 2017), https://www.youtube.com/watch?v=NV1tkZ9Lq48&lt;/li&gt;
+  &lt;li&gt;https://leehyejin91.github.io/post-wide_n_deep/&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Sukwon Yun</name><email>tyryey89@gmail.com</email></author><category term="RecommenderSystem" /><summary type="html">Cheng, Heng-Tze, et al. “Wide &amp;amp; deep learning for recommender systems.” Proceedings of the 1st workshop on deep learning for recommender systems. 2016.</summary></entry><entry><title type="html">Jekyll 테마에서 LaTex 사용하기</title><link href="https://sukwonyun.github.io/jekyll/Jekyll-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-Latex-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="Jekyll 테마에서 LaTex 사용하기" /><published>2020-01-12T11:37:28+09:00</published><updated>2020-01-12T11:37:28+09:00</updated><id>https://sukwonyun.github.io/jekyll/Jekyll%20%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C%20Latex%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0</id><content type="html" xml:base="https://sukwonyun.github.io/jekyll/Jekyll-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-Latex-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">&lt;h2 id=&quot;github-블로그에-latex로-수식-표현하기&quot;&gt;&lt;em&gt;Github 블로그에 LaTex로 수식 표현하기&lt;/em&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-_configyml에서-마크다운-확인하기&quot;&gt;1. _config.yml에서 마크다운 확인하기&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;_config.yml 파일에서 마크다운이 다음과 같이 설정되어 있는지 확인한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/SukwonYun/016168bec2d18fb11786bcaaded98cd6.js&quot;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Github 업데이트로 인해 따로 kramdown 이 알아서 $$, 블록처리를 인식해 줄 것이다.
+&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-_includes-폴더에-mathjaxhtml-파일을-만들고-아래-내용을-넣어준다&quot;&gt;2. _includes 폴더에 Mathjax.html 파일을 만들고 아래 내용을 넣어준다.&lt;/h3&gt;
+
+&lt;script src=&quot;https://gist.github.com/SukwonYun/de38c431b7a2682b8fb4f847e471eb23.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3-_layouts-폴더-안-defaulthtml-파일-맨-밑에-mathjax-를-include-해준다&quot;&gt;3. _layouts 폴더 안 default.html 파일 맨 밑에 Mathjax 를 include 해준다.&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이 때, 중요한 점은 default.html 파일 내 body문 안에서 위치를 지정하는 것이 아닌 아래 위치에 include 해줘야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/SukwonYun/f1adcc4a0949cec4bf00ac4f87e3f9dd.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4-_posts-폴더-내-포스트-생성-후-아래와-같이-초기-설정을-해준다&quot;&gt;4. _posts 폴더 내 포스트 생성 후 아래와 같이 초기 설정을 해준다.&lt;/h3&gt;
+
+&lt;script src=&quot;https://gist.github.com/SukwonYun/eebcf6a00809d271f7cc168eef40d0f9.js&quot;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;‘use_math: true’ 를 포함해준다. &lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;테스트&quot;&gt;&lt;em&gt;테스트&lt;/em&gt;&lt;/h4&gt;
+
+&lt;h4&gt;&lt;코드&gt;&lt;/코드&gt;&lt;/h4&gt;
+
+&lt;script src=&quot;https://gist.github.com/SukwonYun/ef28572b83ef8f3795ef63e1a9fb3bc3.js&quot;&gt;&lt;/script&gt;
+
+&lt;h4 id=&quot;-1&quot;&gt;&lt;실행&gt;&lt;/실행&gt;&lt;/h4&gt;
+
+\[\lim_{x\to 0}{\frac{e^x-1}{2x}}
+\overset{\left[\frac{0}{0}\right]}{\underset{\mathrm{H}}{=}}
+\lim_{x\to 0}{\frac{e^x}{2}}={\frac{1}{2}}\]
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;http://www.ktug.org/xe/index.php?mid=KTUG_open_board&amp;amp;document_srl=248288&amp;amp;rnd=249216#comment_249216&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Sukwon Yun</name><email>tyryey89@gmail.com</email></author><category term="Jekyll" /><summary type="html">Github 블로그에 LaTex로 수식 표현하기</summary></entry><entry><title type="html">[추천시스템] Matrix Factorization Techniques for Recommender Systems</title><link href="https://sukwonyun.github.io/recommendersystem/Netflix/" rel="alternate" type="text/html" title="[추천시스템] Matrix Factorization Techniques for Recommender Systems" /><published>2020-01-12T01:37:28+09:00</published><updated>2020-01-12T01:37:28+09:00</updated><id>https://sukwonyun.github.io/recommendersystem/Netflix</id><content type="html" xml:base="https://sukwonyun.github.io/recommendersystem/Netflix/">&lt;p&gt;Koren, Yehuda, Robert Bell, and Chris Volinsky. “Matrix factorization techniques for recommender systems.” Computer 42.8 (2009): 30-37.&lt;/p&gt;
+
+&lt;h4 id=&quot;in-short-basic-models-of-matrix-factorizaiton&quot;&gt;&lt;em&gt;In short, “Basic models of Matrix Factorizaiton”&lt;/em&gt;&lt;/h4&gt;
+
+&lt;h3 id=&quot;about&quot;&gt;About&lt;/h3&gt;
+
+&lt;p&gt;이 논문은 추천 시스템의 갈래, 그리고 Matrix Factorization 의 기초를 다루고 있는 논문으로 향 후 어떠한 모델 등으로 발전해왔는지 서술한 추천 시스템의 기본 배경지식을 잡아주는 논문이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;abstract&quot;&gt;Abstract&lt;/h3&gt;
+
+&lt;p&gt;Matrix factorization 기법이 기존 nearest-neighborhood 기법보다 제품 추천에 강점을 가진다. 그 이유는 implicit feedback등을 포함할 수 있기 떄문이다.
+추천시스템은 사용자의 제품에 대한 흥미 패턴을 분석해서 사용자의 입맛대로 개인화된 추천을 해주는 것이 핵심이다. 특히 엔터테인먼트, 제품, 영화, 음악 티비 쇼 등에 효과적이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;recommender-systems-strategies&quot;&gt;Recommender Systems Strategies&lt;/h3&gt;
+
+&lt;p&gt;추천 시스템은 큰 틀에서 두 가지 전략으로 나뉘게 된다.&lt;/p&gt;
+
+&lt;h4 id=&quot;1-content-filtering&quot;&gt;1. Content filtering&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;한 명의 유저 혹은 아이템 하나를 캐릭터화 하는 것&lt;/li&gt;
+  &lt;li&gt;영화 같은 경우, 장르, 배우 등&lt;/li&gt;
+  &lt;li&gt;사용자 같은 경우, 데모 그래픽 등&lt;/li&gt;
+  &lt;li&gt;외부 정보를 가져와야 하는데 쉽게 가져오기 힘든 점이 단점&lt;/li&gt;
+  &lt;li&gt;대표적으론 Music Genome Project&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2-collaborative-filtering&quot;&gt;2. Collaborative filtering&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;past user behavior 바탕&lt;/li&gt;
+  &lt;li&gt;외부의 프로필 따로 필요없다는 장점&lt;/li&gt;
+  &lt;li&gt;유저간의 관계, 제품들 간의 상호의존성 분석&lt;/li&gt;
+  &lt;li&gt;왜? 새로운 user-item association 찾기 위해.&lt;/li&gt;
+  &lt;li&gt;도메인에 구속받지 않는다는 것도 큰 장점&lt;/li&gt;
+  &lt;li&gt;보통 content filtering 보다 정확하지만, 새로운 제품과 유저에 대해 다루지 못하는 Cold Start의 단점을 가짐.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2-1-neighborhood-method&quot;&gt;2-1. Neighborhood Method&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;아이템 간 혹은 유저 간의 관계 분석&lt;/li&gt;
+  &lt;li&gt;item-oriented: ‘같은’ 유저에 의해 평가된 다른 비슷한 아이템을 기반으로 평점 매김&lt;/li&gt;
+  &lt;li&gt;user-oriented: 같은 영화를 좋아한 ‘비슷한’ 유저들 바탕으로 그들이 좋아한 영화 추천&lt;/li&gt;
+  &lt;li&gt;user-oriendted 예시
+&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/104197585-8cc53b00-5468-11eb-9b7d-cdd72dde4b94.png&quot; width=&quot;700&quot; height=&quot;370&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Joe 가 Star-Wars 를 좋아했다면, Star-Wars 를 역시 좋아한 Julia 가 좋아한 영화(Spider-man)를 추천&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2-2-latent-factor-model&quot;&gt;2-2. Latent Factor Model&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;아이템과 유저들 모두 캐릭터화&lt;/li&gt;
+  &lt;li&gt;20-100개의 등의 팩터를 rating pattern에 의해 발굴&lt;/li&gt;
+  &lt;li&gt;액션을 담은 정도처럼 명확히 설명될 수도, 아니면 아예 해석이 불가능할수도 있음&lt;/li&gt;
+  &lt;li&gt;영화의 위치와 사용자의 위치를 내적하여 그 영화에 대한 사용자의 평점을 구함&lt;/li&gt;
+  &lt;li&gt;latent factor 예시
+&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/104200017-7ff61680-546b-11eb-974d-560d611cacca.png&quot; width=&quot;700&quot; height=&quot;370&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;한 축(Serious vs Escapist)이 유저와 아이템 모두를 캐릭터화하는 특징&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;matrix-factorization-methods&quot;&gt;Matrix Factorization Methods&lt;/h3&gt;
+
+&lt;h4 id=&quot;2-2--matrix-factorization&quot;&gt;2-2-*. Matrix Factorization&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Latent Factor model 의 기반이 됨&lt;/li&gt;
+  &lt;li&gt;평점을 매기는 패턴에 의해 아이템과 유저 모두 factor vector 로 캐릭터화&lt;/li&gt;
+  &lt;li&gt;적용 스케일과 높은 예측도로 많은 사랑 받음&lt;/li&gt;
+  &lt;li&gt;변동성 많은 현실 세계에도 잘 적합&lt;/li&gt;
+  &lt;li&gt;행렬을 구성할 때 사용자와, 아이템에 대한 흥미로 행렬을 나타냄&lt;/li&gt;
+  &lt;li&gt;가장 좋은 데이터는 사용자의 흥미를 담은 Rating과 같은 explicit feedback&lt;/li&gt;
+  &lt;li&gt;대부분 explicit feedback은 결측치가 많다는 단점&lt;/li&gt;
+  &lt;li&gt;Matrix Factorization의 또 하나의 강점은 부가적인 정보, implicit feedback 등을 담을 수 있다는 점&lt;/li&gt;
+  &lt;li&gt;Implicit feedback: 구매 이력, 검색 이력, 마우스 움직임 등. 보통 presence or abscence로 나타내서 밀도 있는 행렬로 볼 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;a-basic-matrix-factorization-model&quot;&gt;A Basic Matrix Factorization model&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Joint Latent factor space, f 차원으로 맵핑 후 그들 사이의 상호작용은 내적으로 표현&lt;/li&gt;
+  &lt;li&gt;아이템 벡터: \(q_{i} \in \mathbb{R}^f\)&lt;/li&gt;
+  &lt;li&gt;유저 벡터: \(p_{u} \in \mathbb{R}^f\)&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\hat{r_{ui}} = q_{i}^Tp_{u}\]
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;내적의 의미는 ‘the user’s overall interest in the item’s characteristics’&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이러한 모델은 ‘SVD’ 특이값 분해와 비슷함&lt;/li&gt;
+  &lt;li&gt;SVD: identifying latent semantic factors in information retrieval (정보 검색에서 잠재 의미 요인 도출)&lt;/li&gt;
+  &lt;li&gt;Factoring the user-item rating matrix가 필요한데 rating matrix에서의 많은 결측값이 어려움을 만들어냄&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;적은 수의 rating 만으로 분석하기엔 오버피팅 가능성&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;대체값을 넣는 시도도 있었지만 모델을 왜곡시켰고, 정규화 텀을 추가해서 rating 목적식에 대한 오차제곱합을 최소화시키는 방향성 제시.&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\min_{q^*, p^*} \sum_{(u,i)\in\mathbb{\kappa}} (r_{ui}-q_{i}^Tp_{u})^2 + \lambda(||q_{i}||^2+ ||p_{u}||^2)\]
+
+&lt;ul&gt;
+  &lt;li&gt;예측하지 못한 평점에 대해서도 잘 예측할 수 있게 만드는 일반화의 목적. 이때 정규화 텀의 람다는 cross-validation을 통해 주로 도출함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;learning-algorithms&quot;&gt;Learning Algorithms&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;위의 오차제곱합을 줄이기 위해 SGD 방법을 통해 \(q_{i}, p_{u}\) 를 업데이트 시키는 학습 알고리즘&lt;/li&gt;
+&lt;/ul&gt;
+
+\[e_{ui} = r_{ui} - q_{i}^Tp_{u}\]
+
+&lt;ul&gt;
+  &lt;li&gt;ALS 기법은 두 변수 모두 모르는 상황에서 하나를 고정시키면 이차항 문제로 바뀌기 때문에 최적해를 구해낼 수 있게 됨&lt;/li&gt;
+  &lt;li&gt;\(q_{i}, p_{u}\) 중 하나 고정시키고 나머지 최적화시키는 방식으로 번갈아가며 수렴할 때 까지 반복&lt;/li&gt;
+  &lt;li&gt;시스템이 병렬적으로 운영가능한 경우와 implicit data에 집중된 경우 ALS 쓰는게 효과적일 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;adding-biases&quot;&gt;Adding Biases&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;다양한 데이터와 실제상황에 잘 맞는 matrix factorization의 특성 활용해서 interaction이 아닌 유저, 아이템 자체의 영향력 살펴보는 방안.&lt;/li&gt;
+  &lt;li&gt;해리포터 자체가 다른 영화들 보다 더욱 인지도 큰 것 처럼.&lt;/li&gt;
+&lt;/ul&gt;
+
+\[b_{ui} = \mu + b_{i} +b_{u}\]
+
+\[r_{ui} = \mu + b_{i} +b_{u} + q_{i}^Tp_{u}\]
+
+\[\min_{p^*, q^*, b^*} \sum_{(u,i)\in\mathbb{\kappa}} (r_{ui}-\mu - b_{u} - b_{i} - p_{u}^Tq_{i})^2 + \lambda(||p_{u}||^2+ ||q_{i}||^2 + b_{u}^2 + b_{i}^2)\]
+
+&lt;ul&gt;
+  &lt;li&gt;이에 모델의 구성요소를 global average + item bias + user bias + user-item interaction 으로 나눌 수 있음.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;additional-input-sources&quot;&gt;Additional Input Sources&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;많은 유저가 상당히 적은 수의 평점을 남긴 cold start 의 경우, implicit feedback 을 포함해서 해결하는 방안&lt;/li&gt;
+  &lt;li&gt;Normalize 도 시켜주고 implicit feedback에 대한 정보도 식에 표현시켜줌&lt;/li&gt;
+  &lt;li&gt;\(N_{u}\): User u 가 implicit preference를 표현한 아이템의 집합 (Boolean 고려)&lt;/li&gt;
+  &lt;li&gt;\(A_{u}\): User u 의 demographic과 같은 특성 (Boolean 고려)&lt;/li&gt;
+&lt;/ul&gt;
+
+\[r_{ui} = \mu + b_{i} +b_{u} + q_{i}^T[p_{u}+|N_{u}|^{-0.5} \sum_{i\in N_{u}}x_{i} + \sum_{a\in A_{u}}y_{a}]\]
+
+&lt;h3 id=&quot;temporal-dynamics&quot;&gt;Temporal dynamics&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;여태의 static한 모델들과 다르게 제품 인지도와 유명세는 시간에 따라 다르기 때문에 시간의 제약 받도록(temporal) 모델 확장&lt;/li&gt;
+  &lt;li&gt;Dynamic Prediction rule for a rating at a time t&lt;/li&gt;
+&lt;/ul&gt;
+
+\[r_{ui}(t) = \mu + b_{i}(t) +b_{u}(t) + q_{i}^Tp_{u}(t)\]
+
+&lt;h3 id=&quot;inputs-with-varying-confidence-levels&quot;&gt;Inputs with Varying confidence levels&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;관측된 모든 평점이 같은 가중치와 신뢰도를 갖지 않음&lt;/li&gt;
+  &lt;li&gt;implicit feedback 정량화 하기 힘듬&lt;/li&gt;
+  &lt;li&gt;이런 상황에서 confidence를 Frequency 즉, 빈도로 가져감&lt;/li&gt;
+  &lt;li&gt;\(c_{ui}\) 라는 confidence term 추가함&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\min_{p^*, q^*, b^*} \sum_{(u,i)\in\mathbb{\kappa}}c_{ui}(r_{ui}-\mu - b_{u} - b_{i} - p_{u}^Tq_{i})^2 + \lambda(||p_{u}||^2+ ||q_{i}||^2 + b_{u}^2 + b_{i}^2)\]
+
+&lt;h3 id=&quot;netflix-prize-competition&quot;&gt;Netflix Prize Competition&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;넷플릭스가 추천 시스템 성능향상을 위해 개최한 대회&lt;/li&gt;
+  &lt;li&gt;RMSE를 평가척도로 사용&lt;/li&gt;
+  &lt;li&gt;이 논문에서 앞서 언급한 방법이 제일 효과적이었던 방법&lt;/li&gt;
+  &lt;li&gt;Factorizing -&amp;gt; most descriptive dimensions for predicting movie preferences&lt;/li&gt;
+  &lt;li&gt;앞서 언급한 방법들을 토대로 RMSE와 파라미터 수를 축으로 plotting 해보았을 때, temporal dynamics (v.2) 가 성능 제일 좋았음. 파라미터 수 늘어날수록 RMSE도 같이 줄어듬.
+&lt;img src=&quot;https://user-images.githubusercontent.com/68312164/104260126-2f5fd700-54c6-11eb-8c6b-03fc15b123fd.png&quot; width=&quot;700&quot; height=&quot;370&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;세-줄-요약&quot;&gt;세 줄 요약&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;추천시스템은 Content filtering, Collaborative filtering으로 나뉘고 Collaborative Filtering 중 Latent Factor model을 주로 사용한다.&lt;/li&gt;
+  &lt;li&gt;Matrix Factorization은 기존의 Neighbor 방법보다 효과적이고 implicit feedback 등의 영향력도 모델에 포함할 수 있다.&lt;/li&gt;
+  &lt;li&gt;이 외에도 시간의 영향력, 신뢰도 개념까지 추가하여 더욱 정밀한 모델 설정이 가능하다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Koren, Yehuda, Robert Bell, and Chris Volinsky. “Matrix factorization techniques for recommender systems.” Computer 42.8 (2009): 30-37.&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Sukwon Yun</name><email>tyryey89@gmail.com</email></author><category term="RecommenderSystem" /><summary type="html">Koren, Yehuda, Robert Bell, and Chris Volinsky. “Matrix factorization techniques for recommender systems.” Computer 42.8 (2009): 30-37.</summary></entry></feed>
