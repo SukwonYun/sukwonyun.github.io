@@ -16,4 +16,10 @@ var store = [{
         "tags": [],
         "url": "https://sukwonyun.github.io/recommendersystem/WideDeep/",
         "teaser": null
+      },{
+        "title": "hi",
+        "excerpt":"hkids  ","categories": [],
+        "tags": [],
+        "url": "https://sukwonyun.github.io/hi/",
+        "teaser": null
       }]
