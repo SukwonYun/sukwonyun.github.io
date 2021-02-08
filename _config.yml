@@ -94,7 +94,7 @@ analytics:
 # Site Author
 author:
   name             : "Sukwon Yun"
-  avatar           : "https://user-images.githubusercontent.com/68312164/104126480-24128b80-53a0-11eb-83a3-3472f9703d1c.png"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "https://user-images.githubusercontent.com/68312164/107226245-35ad8880-6a5d-11eb-811f-730cd3f6967f.jpg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "The more you fall, the more you learn."
   location         : "Seoul, South Korea"
   email            : tyryey89@gmail.com
