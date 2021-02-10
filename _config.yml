@@ -94,7 +94,7 @@ analytics:
 # Site Author
 author:
   name             : "Sukwon Yun"
-  avatar           : "https://user-images.githubusercontent.com/68312164/104126480-24128b80-53a0-11eb-83a3-3472f9703d1c.png"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "https://user-images.githubusercontent.com/68312164/107226530-99d04c80-6a5d-11eb-9528-e3431288d478.png"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "The more you fall, the more you learn."
   location         : "Seoul, South Korea"
   email            : tyryey89@gmail.com
@@ -219,6 +219,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-toc
 
 # mimic GitHub Pages with --safe
 whitelist:
