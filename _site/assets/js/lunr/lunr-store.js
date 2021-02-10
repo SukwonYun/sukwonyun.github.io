@@ -17,9 +17,9 @@ var store = [{
         "url": "https://sukwonyun.github.io/recommendersystem/WideDeep/",
         "teaser": null
       },{
-        "title": "hi",
-        "excerpt":"hkids  ","categories": [],
+        "title": "[지식그래프] (TransE) Translating Embeddings for Modeling Multi-relational Data",
+        "excerpt":"Bordes, Antoine, et al. “Translating embeddings for modeling multi-relational data.” Neural Information Processing Systems (NIPS). 2013. In short, “Embedding Entities and Relationships in Same space” About 이 논문은 지식 그래프에서 가장 기반이 되는 Translation-based model 이라고 할 수 있고, 저 차원의 벡터 공간에서 가볍고 성능이 좋은 모델을 제시하는데 의의가 있다....","categories": [],
         "tags": [],
-        "url": "https://sukwonyun.github.io/hi/",
+        "url": "https://sukwonyun.github.io/TransE/",
         "teaser": null
       }]

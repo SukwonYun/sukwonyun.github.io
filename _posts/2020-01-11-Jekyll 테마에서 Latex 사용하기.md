@@ -1,12 +1,12 @@
 ---
-title: "Jekyll 테마에서 LaTex 사용하기"
-date: 2020-01-11 22:37:28 -0400
+title: Jekyll 테마에서 LaTex 사용하기
+date: '2020-01-11 22:37:28 -0400'
 categories: Jekyll
 use_math: true
 comments: true
 ---
 
-## *Github 블로그에 LaTex로 수식 표현하기*
+#### *Github 블로그에 LaTex로 수식 표현하기*
 
 ### 1. _config.yml에서 마크다운 확인하기
 

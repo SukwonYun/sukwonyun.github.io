@@ -1,0 +1,150 @@
+I"4:<p>Bordes, Antoine, et al. “Translating embeddings for modeling multi-relational data.” Neural Information Processing Systems (NIPS). 2013.</p>
+
+<h3 id="in-short-embedding-entities-and-relationships-in-same-space"><em>In short, “Embedding Entities and Relationships in Same space”</em></h3>
+
+<h3 id="about">About</h3>
+
+<p>이 논문은 지식 그래프에서 가장 기반이 되는 Translation-based model 이라고 할 수 있고, 저 차원의 벡터 공간에서 가볍고 성능이 좋은 모델을 제시하는데 의의가 있다.</p>
+
+<h3 id="abstract">Abstract</h3>
+
+<p>지금 우리가 해결할 문제는 구성요소와 관계들을 저차원의 벡터 공간으로 임베딩 시키는 것이고, 무엇보다 지식 그래프의 기반이 되고 학습하기 쉬운 장점을 가지는 것을 목표로 한다. 이에 TransE 라는 모델을 제시하는데 이 모델은 <strong>relationship</strong>(관계)를  저차원의 임베딩된 구성요소간 <strong>translations</strong>(전환)  으로 해석한다는 것이 핵심이다.</p>
+
+<h3 id="1-introduction">1. Introduction</h3>
+
+<h4 id="modeling-multi-realtional-data">Modeling multi-realtional data</h4>
+<ul>
+  <li>Multi-relational data 란 무엇일까?</li>
+</ul>
+
+<p>단어에서 유추할 수 있듯이 많은 관계를 표현하는게 우선시되어 보인다. 이는, <strong>directed graph</strong>(방향을 가진 그래프) 에서 nodes와 edges를 entities(head, tail), label로 표현한 것으로 다음과 같이 나타낼 수 있다.  $(head, label, tail)$ 의 의미를 가진 $(h,l,t)$ 로 간략화 할 수 있고 주로 사회 네트워크 망이나 친구 관계, 소셜 네트워크 등에서 주로 사용된다. 이때 우리의 목표는 KB, 지식 그래프에서 발생하는 다수의 관계를 효과적으로 모델링하여 새로운 정보가 들어오면 별도의 지식없이 자동적으로 정보를 업데이트 해주는 것이다.</p>
+
+<p>이때, realtional data, 즉 관계를 가지는 데이터에서 중요한점은 locality, 국소적인 관계에 있어 구성요소와 관계가 서로 다른 타입의 데이터를 동시에 가질 수 있다는 점이다. 이에 multi-relational, 다양한 관계를 가진 데이터를 표현할 때는 좀 더 일반적인 접근이 필요하다. 그리고 추천시스템에서 주로 다루는 Matrix factorization  의 성질을 이용한 single, multi-realtional 관계 표현에 이어 2013년에 발표된 ‘<em>A semantic matching energy function for learning with multi-realtional data</em>‘에 의하면,  복잡하고 여러 타입의 데이터 타입이 포함된 multi-relational 도메인에서 linear하고 simple한 모델이 정확성과 확장성 사이의 절충을 더욱 잘 표현할 수 있음을 시사한다.</p>
+
+<h4 id="relationships-as-translations-in-the-embedding-space">Relationships as translations in the embedding space</h4>
+<p>이 논문에서 제시하는 TransE라는 energy-based 모델은  구성요소들의 저차원 임베딩을 학습하는데 의의를 가지고 관계들을 임베딩 공간에서의 전환으로 표현될 수 있다. 이때 핵심은 <strong>$(h,l,t)$가 성립한다면, $h+l \approx t$</strong> 가 성립한다는 점이다. 즉, <strong>임베딩 된 tail entity $t$는 임베딩 된 head entity $h$ 와 realtionship 과 관련된 벡터 $l$ 과의 합과 가까이 위치한다</strong>는 의미로 볼 수 있다.</p>
+
+<p>이 식에 대한 모티베이션은 간단히 두 가지 인데 아래와 같다.</p>
+<ol>
+  <li>지식그래프에서 흔히 볼 수 있는 계층적인 관계(부모-자식, 자녀 관계)를 잘 표현할 수 있는게 결국, translation 이다.</li>
+  <li>노드 타입이 다른 1-to-1 관계를 좀 더 용이하게  표현할 수 있는게 역시, translation 이다.</li>
+</ol>
+
+<h3 id="2-translation-based-model">2. Translation-based model</h3>
+
+<p>훈련 데이터 셋에서 모델의 핵심은 구성 요소들과 관계를 잘 나타내는 저차원의 벡터 임베딩을 학습하는 것이다. 머신러닝에서 항상 그래왔듯, 학습을 하기 위해서는 손실 함수가 정의 되어야고 정의된 손실함수가 어느 방향(최소화 방향) 으로 학습을 진행하면 될지를 알려주는 이정표가 될 것이다. 이 때 손실함수는 margin-based ranking criterion 으로 정의하는데 목적식을 정의하기 이전에 다음과 같은 맥락을 이해해야 한다.</p>
+
+<ul>
+  <li>\((h,l,t)\) 로 구성된 훈련 셋 \(S\)</li>
+  <li>\(h,t\in E\)(set of entities), \(l \in L\)(set of relationships)</li>
+  <li>임베딩 벡터의 차원: \(\mathbb{R}^{k}\)(k는 실험자 지정 하이퍼파라미터)</li>
+  <li>energy of triplet: \(d(h+l, t)\), \(d\)는 dissimilarity measure로 주로 \(L_{1}, L_{2} - norm\)</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/68312164/105043795-4d6e9e00-5aa9-11eb-805b-f0a9248b624e.png" width="200" height="250" /> <img src="https://user-images.githubusercontent.com/68312164/105043929-798a1f00-5aa9-11eb-9b49-1962dc8b6210.png" width="200" height="250" /> <img src="https://user-images.githubusercontent.com/68312164/105044095-ab9b8100-5aa9-11eb-9d07-523b7ea10fcc.png" width="200" height="250" /></p>
+
+<h4 id="wide-model">Wide Model</h4>
+<p><img src="https://user-images.githubusercontent.com/68312164/105060951-4a30dd80-5abc-11eb-995c-214a73c3ddbd.png" alt="image" /></p>
+
+<p>먼저 Wide 모델에서는 위와 같이 User feature, Impression feature 그리고 Crossed feature를 input으로 가지게 된다. 유저가 실제로 설치한 여행 앱, ’Priceline’ 을 1이라고 하고, 유저가 관심을 보인 ‘Kayak’ 앱을 1이라고 했을 때 둘을 곱한 1이 Crossed Feature가 된다. 이러한 방식은 1인 경우만 학습을 하기에 유저의 niche 한 특성이 잘 반영되는 한편, User feature, Impression feature 중 하나가 0 이면 Crossed feature 역시 학습이 불가능하다는 한계를 가진다.</p>
+
+<h4 id="deep-model">Deep Model</h4>
+<p><img src="https://user-images.githubusercontent.com/68312164/105061021-5ae15380-5abc-11eb-88e9-72bbb555adab.png" width="320" height="300" /> <img src="https://user-images.githubusercontent.com/68312164/105061111-79dfe580-5abc-11eb-9673-ee80dec0d90f.png" width="320" height="300" /></p>
+
+<p>다음으로 Deep 모델에서는 구체화된 ‘Priceline’, ‘Kayak’ 과 같은 앱이 아닌 ‘Travel’ 이라는 큰 범주 하에서 feature를 구성하게 된다. 이 경우, 위에서 0 이었던 값들이 Dense한 임베딩 공간(오른쪽)으로 옮겨져서 값을 부여받아서 더욱 일반화 된(큰 범주에서) 값을 잘 표현할 수 있게된다. 하지만, 앞서 표현했던 뚜렷한 niche 한 관계는 잘 표현하지 못한다는 단점을 가지게 된다. 이러한 장단점을 잘 표현한 그림은 아래와 같다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/68312164/105061144-849a7a80-5abc-11eb-95ca-d5e121b80c8a.png" width="320" height="300" />   <img src="https://user-images.githubusercontent.com/68312164/105061198-98de7780-5abc-11eb-8d7a-5e6d6e56c9d5.png" width="320" height="300" /></p>
+
+<p>먼저 왼쪽은 Deep 모델이 유리한 경우인데, 상대적으로 유사한 가중치를 가질 때 임베딩 공간으로 옮겨지게 되면서 파라미터 수가 줄어드는 것을 확인할 수 있다. 이러한 특성은 추천시스템의 MF에서 SVD와 같은 latent space가 가지는 의미와 일맥상통하고 PCA 특성 또한 함유하고 있다. 반면 오른쪽에서와 같이 Spase하고 niche 할때는 Deep 모델이 상대적으로 불리할 수 있고 같은 임베딩 공간 내에서 서로 다른 클러스터를 밀어내기가 힘들어 상대적으로 덜 유의한 앱을 추천할 가능성을 가지게 된다.</p>
+
+<p>즉, 정리하면</p>
+<ul>
+  <li>Dense, similar -&gt; Deep 유리</li>
+  <li>Sparse, niche -&gt; Wide 유리</li>
+</ul>
+
+<h3 id="2-recommender-system-overview">2. Recommender System Overview</h3>
+<p><img src="https://user-images.githubusercontent.com/68312164/105073305-3be9be00-5aca-11eb-81af-4d86a8b1437e.png" alt="image" /></p>
+
+<p>추천시스템의 개략적인 구조를 살펴보면 위와 같은데, 쿼리를 인풋으로 받아서 유저에게 Item 간 랭크를 매겨 추천해주고 이에 대한 액션과 앞선 쿼리를 로그에 담아 학습하고 다시 랭킹을 메기는 시스템 구조이다.
+이 논문에서는 랭킹을 메기는 과정에서 Wide&amp;Deep 학습 방법을 기반으로 하는 것에 중점을 둔다.</p>
+
+<h3 id="3-wide--deep-learning">3. Wide &amp; Deep Learning</h3>
+
+<h4 id="the-wide-component">The Wide Component</h4>
+<p><img src="https://user-images.githubusercontent.com/68312164/105074368-98011200-5acb-11eb-9980-307b80445dd8.png" alt="image" /></p>
+
+<p>Wide 모델에서는 아래와 같은 선형의 관계를 나타내게 되는데, 이때 feature set \(\textbf{x}\) 는 raw input feature와 transformed된 feature로 구성된다.</p>
+
+\[y = \textbf{w}^T \textbf{x} + b\]
+
+\[where, \textbf{x} = [x_1,x_2,...,x_d],  \textbf{w} = [w_1,w_2,...,w_d],  b = bias\]
+
+<p>이때, raw input과 함께 구성되는 feature는 <em>cross-product transformation</em> 을 거치게 되는데 아래와 같이 정의된다.</p>
+
+\[\phi_{k}(\textbf{x}) = \prod_{i=1}^{d}x_{i}^{c_{ki}}, c_{ki} \in \left \{ 0,1 \right\}\]
+
+<p>간단한 예시로는, 다음과 같이 binary한 상황을 가정하면 아래와 같이 표현할 수 있다.</p>
+
+\[gender = \left [ male, female \right ] = \left [ 1,0 \right ]\]
+
+\[married = \left [ yes, no \right ] = \left [ 1,0 \right ]\]
+
+\[language = \left [ english, koeran \right ] = \left [ 1,0 \right ]\]
+
+<p>이때, user A가 male이고 married 한 상태이고 korean 이면 아래와 같은 벡터를 가지게 된다.</p>
+
+\[\textbf{x} = \left [ gender, married, language \right ] = \left [ 1,1,0 \right ]\]
+
+<p>이때, transformation \(\phi_{k} \left ( k = 1,2,3 \right)\) 에서 \(k=1\)인 상태가, married와 language의 조합을 나타내는 transformation이라고 한다면,
+\(\phi_{1} \left (\textbf{x} \right )\) 는 아래와 같이 나타낼 수 있다.</p>
+
+\[\phi_{1} \left (\textbf{x} \right ) = x_1^{c_{11}}x_2^{c_{21}}x_3^{c_{31}} = 1^0 1^1 0^1 = 1\]
+
+<h4 id="the-deep-component">The Deep Component</h4>
+<p><img src="https://user-images.githubusercontent.com/68312164/105074332-8f104080-5acb-11eb-9a91-07e5b6f9f0c3.png" alt="image" /></p>
+
+<p>Deep 모델에서는 순전파의 신경망을 생각하면 되는데, 이때 \(\textbf{a}\)는 Continuous feature와 Categorical feature를 concat하여 input으로 사용한다. Categorical feature는 임베딩을 거쳐 dense한 벡터로 구성되어 합쳐진다.</p>
+
+\[\textbf{a}^{\left ( l+1 \right )} = f\left (\textbf{W}^{\left ( l \right )}\textbf{a}^{\left ( l \right )}+\textbf{b}^{\left ( l \right )}   \right)\]
+
+<p>이떼, \(l\)은 레이어 번호, \(f\)는 ReLu와 같은 활성화 함수, \(W\)는 가중치 행렬, \(b\)는 편향을 의미한다.</p>
+
+<h4 id="joint-training-of-wide--deep-model">Joint Training of Wide &amp; Deep Model</h4>
+<p><img src="https://user-images.githubusercontent.com/68312164/105078865-ed402200-5ad1-11eb-820d-b3919a06bb5a.png" alt="image" /></p>
+
+<p>최종 모델은 앞선 wide, deep 모델의 특성을 합쳐서 하나의 목적식, prediction으로 표현한다고 볼 수 있다. logistic regression 문제에서 모델의 예측식은 아래와 같다.
+이때, 아웃풋에서 출발하는 역전파를 wide, deep 방향 모두가 전파 받고 모델이 동시에 mini-batch 학습을 하게 된다. 동시에 두 파트가 학습되는 점이 각 모델들이 학습된 이후 최종적으로 합쳐지는 앙상블 모델과 차별화되는 점이다. 실제 Wide &amp; Deep 실험에서는, wide 파트에서는 FTRL + L1 알고리즘을 사용하였고, deep 파트에서는 AdaGrad 를 optimizer로 사용하였다. 아래 식에서 \(P(Y=1 | \textbf{x})\)는 feature vector가 인풋으로 주어졌을 때 실제 특정 앱을 수용할 확률, app acquisition 확률로 이해하면 된다.</p>
+
+\[P(Y=1 | \textbf{x}) = \sigma\left ( \textbf{w}_{wide}^T\left [ \textbf{x}, \phi\left ( \textbf{x} \right ) \right ] + \textbf{w}_{deep}^T a^{\left ( l_{f} \right )} + b \right)\]
+
+<h3 id="4-system-implementation">4. System Implementation</h3>
+
+<p>앱 추천 시스템의 파이프라인은 아래와 같이 Data Generation, Model Training, Model Serving 3 단계로 구성된다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/68312164/105080633-70627780-5ad4-11eb-893b-3a35e896fb30.png" alt="image" /></p>
+
+<p>이때, Model training 단계에서 매번 재학습을 방지하기 위해 <strong>warm-starting</strong>로 이전 모델의 임베딩과 linear 모델 가중치를 새로운 모델에 적용한다는 점도 주목할 만한 점이다.</p>
+
+<h3 id="5-experiment-results">5. Experiment Results</h3>
+<p><img src="https://user-images.githubusercontent.com/68312164/105080975-ef57b000-5ad4-11eb-94a5-930f01039f6c.png" width="320" height="300" /> <img src="https://user-images.githubusercontent.com/68312164/105080997-f67ebe00-5ad4-11eb-968d-a53b261cfa44.png" width="320" height="300" /></p>
+
+<p>Wide 모델은 대조군으로 설정하고 Wide &amp; Deep 모델을 실험군으로 설정했을 때, 4% 정도의 수용률 증가를 얻어냈고, online traffic일때 더욱 좋은 퍼포먼스를 보여주었다. 또한 Batch를 더욱 분할하여 진행했을 때, 속도 또한 효과적임을 확인할 수 있었다.</p>
+
+<h3 id="6-conclusion">6. Conclusion</h3>
+<p>저자는 Factorization Machines(Rendle, Steffen. 2010) 에서 많은 영향을 받았다고 한다. 그리고 FM에서 주 컨셉이었던 임베딩 공간에서의 벡터 내적 대신에 신경망과 결합된 임베딩으로 한층 더 비선형적인 관계까지 확장해나갔다. 이로써 다시 한 번 정리하면, Memorization을 Wide linear model에서 cross product를 통해 이루어 냈고, Generalization을 DNN을 통해 효과적으로 이루어 내어 두 컨셉을 결합해 하나의 통합적인 모델을 제시하였다.</p>
+
+<h3 id="세-줄-요약">세 줄 요약</h3>
+<ol>
+  <li>Memorization = Wide Linear Model + Cross-product transformation</li>
+  <li>Generalization = Deep Neural Network</li>
+  <li>Wide &amp; Deep = Memorization + Generalization</li>
+</ol>
+
+<h3 id="references">References</h3>
+<ol>
+  <li>Cheng, Heng-Tze, et al. “Wide &amp; deep learning for recommender systems.” Proceedings of the 1st workshop on deep learning for recommender systems. 2016.</li>
+  <li>Wide &amp; Deep Learning: Memorization + Generalization with TensorFlow (TensorFlow Dev Summit 2017), https://www.youtube.com/watch?v=NV1tkZ9Lq48</li>
+  <li>https://leehyejin91.github.io/post-wide_n_deep/</li>
+</ol>
+:ET

@@ -326,9 +326,17 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
       <section class="page__content" itemprop="text">
         
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#in-short-basic-models-of-matrix-factorizaiton">In short, “Basic models of Matrix Factorizaiton”</a></li><li><a href="#about">About</a></li><li><a href="#abstract">Abstract</a></li><li><a href="#recommender-systems-strategies">Recommender Systems Strategies</a><ul><li><a href="#1-content-filtering">1. Content filtering</a></li><li><a href="#2-collaborative-filtering">2. Collaborative filtering</a><ul><li><a href="#2-1-neighborhood-method">2-1. Neighborhood Method</a></li><li><a href="#2-2-latent-factor-model">2-2. Latent Factor Model</a></li><li><a href="#2-2--matrix-factorization">2-2-*. Matrix Factorization</a></li></ul></li></ul></li><li><a href="#a-basic-matrix-factorization-model">A Basic Matrix Factorization model</a></li><li><a href="#learning-algorithms">Learning Algorithms</a></li><li><a href="#adding-biases">Adding Biases</a></li><li><a href="#additional-input-sources">Additional Input Sources</a></li><li><a href="#temporal-dynamics">Temporal dynamics</a></li><li><a href="#inputs-with-varying-confidence-levels">Inputs with Varying confidence levels</a></li><li><a href="#netflix-prize-competition">Netflix Prize Competition</a></li><li><a href="#세-줄-요약">세 줄 요약</a><ul><li><a href="#references">References</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
         <p>Koren, Yehuda, Robert Bell, and Chris Volinsky. “Matrix factorization techniques for recommender systems.” Computer 42.8 (2009): 30-37.</p>
 
-<h4 id="in-short-basic-models-of-matrix-factorizaiton"><em>In short, “Basic models of Matrix Factorizaiton”</em></h4>
+<h3 id="in-short-basic-models-of-matrix-factorizaiton"><em>In short, “Basic models of Matrix Factorizaiton”</em></h3>
 
 <h3 id="about">About</h3>
 
@@ -364,7 +372,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   <li>보통 content filtering 보다 정확하지만, 새로운 제품과 유저에 대해 다루지 못하는 Cold Start의 단점을 가짐.</li>
 </ul>
 
-<h4 id="2-1-neighborhood-method">2-1. Neighborhood Method</h4>
+<h5 id="2-1-neighborhood-method">2-1. Neighborhood Method</h5>
 
 <ul>
   <li>아이템 간 혹은 유저 간의 관계 분석</li>
@@ -375,7 +383,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   <li>Joe 가 Star-Wars 를 좋아했다면, Star-Wars 를 역시 좋아한 Julia 가 좋아한 영화(Spider-man)를 추천</li>
 </ul>
 
-<h4 id="2-2-latent-factor-model">2-2. Latent Factor Model</h4>
+<h5 id="2-2-latent-factor-model">2-2. Latent Factor Model</h5>
 
 <ul>
   <li>아이템과 유저들 모두 캐릭터화</li>
@@ -387,9 +395,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   <li>한 축(Serious vs Escapist)이 유저와 아이템 모두를 캐릭터화하는 특징</li>
 </ul>
 
-<h3 id="matrix-factorization-methods">Matrix Factorization Methods</h3>
-
-<h4 id="2-2--matrix-factorization">2-2-*. Matrix Factorization</h4>
+<h5 id="2-2--matrix-factorization">2-2-*. Matrix Factorization</h5>
 
 <ul>
   <li>Latent Factor model 의 기반이 됨</li>
@@ -507,11 +513,10 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   <li>이 외에도 시간의 영향력, 신뢰도 개념까지 추가하여 더욱 정밀한 모델 설정이 가능하다.</li>
 </ol>
 
-<h3 id="references">References</h3>
+<h4 id="references">References</h4>
 <ol>
   <li>Koren, Yehuda, Robert Bell, and Chris Volinsky. “Matrix factorization techniques for recommender systems.” Computer 42.8 (2009): 30-37.</li>
 </ol>
-
 
         
       </section>
@@ -590,7 +595,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/hi/" rel="permalink">hi
+        <a href="/TransE/" rel="permalink">[지식그래프] (TransE) Translating Embeddings for Modeling Multi-relational Data
 </a>
       
     </h2>
@@ -609,22 +614,22 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          4 minute read
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">hkids
+    <p class="archive__item-excerpt" itemprop="description">Bordes, Antoine, et al. “Translating embeddings for modeling multi-relational data.” Neural Information Processing Systems (NIPS). 2013.
 </p>
   </article>
 </div>
 -->
     
-      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> January 30 2021</p>
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> February 08 2021</p>
     
-    <p class="archive__item-excerpt" itemprop="description">hkids
+    <p class="archive__item-excerpt" itemprop="description">Bordes, Antoine, et al. “Translating embeddings for modeling multi-relational data.” Neural Information Processing Systems (NIPS). 2013.
 </p>
   </article>
 </div>
