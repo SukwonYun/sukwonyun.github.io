@@ -1,4 +1,332 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sukwonyun.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sukwonyun.github.io/" rel="alternate" type="text/html" /><updated>2021-02-11T00:41:32+09:00</updated><id>https://sukwonyun.github.io/feed.xml</id><title type="html">Suk’s</title><subtitle>No challenge, No change.</subtitle><author><name>Sukwon Yun</name><email>tyryey89@gmail.com</email></author><entry><title type="html">[지식그래프] (TransR) Learning Entity and Relation Embeddings for Knowledge Graph Completion</title><link href="https://sukwonyun.github.io/%EC%A7%80%EC%8B%9D%EA%B7%B8%EB%9E%98%ED%94%84/TransH/" rel="alternate" type="text/html" title="[지식그래프] (TransR) Learning Entity and Relation Embeddings for Knowledge Graph Completion" /><published>2021-02-10T22:03:43+09:00</published><updated>2021-02-10T22:03:43+09:00</updated><id>https://sukwonyun.github.io/%EC%A7%80%EC%8B%9D%EA%B7%B8%EB%9E%98%ED%94%84/TransH</id><content type="html" xml:base="https://sukwonyun.github.io/%EC%A7%80%EC%8B%9D%EA%B7%B8%EB%9E%98%ED%94%84/TransH/">&lt;p&gt;Lin, Yankai, et al. “Learning entity and relation embeddings for knowledge graph completion.” Proceedings of the AAAI Conference on Artificial Intelligence. Vol. 29. No. 1. 2015.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sukwonyun.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sukwonyun.github.io/" rel="alternate" type="text/html" /><updated>2021-02-18T12:53:38+09:00</updated><id>https://sukwonyun.github.io/feed.xml</id><title type="html">Suk’s</title><subtitle>No challenge, No change.</subtitle><author><name>Sukwon Yun</name><email>tyryey89@gmail.com</email></author><entry><title type="html">[추천시스템] Factorization Meets the Neighborhood: a Multifaceted Collaborative Filtering Model</title><link href="https://sukwonyun.github.io/%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C/Netflix2/" rel="alternate" type="text/html" title="[추천시스템] Factorization Meets the Neighborhood: a Multifaceted Collaborative Filtering Model" /><published>2021-02-18T11:52:07+09:00</published><updated>2021-02-18T11:52:07+09:00</updated><id>https://sukwonyun.github.io/%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C/Netflix2</id><content type="html" xml:base="https://sukwonyun.github.io/%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C/Netflix2/">&lt;p&gt;Koren, Yehuda. “Factorization meets the neighborhood: a multifaceted collaborative filtering model.” Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining. 2008.&lt;/p&gt;
+
+&lt;h3 id=&quot;in-short-latent-factor-model--neighborhood-model-explicit--implicit&quot;&gt;&lt;em&gt;In short, “Latent Factor model + Neighborhood model, Explicit + Implicit”&lt;/em&gt;&lt;/h3&gt;
+
+&lt;h3 id=&quot;about&quot;&gt;About&lt;/h3&gt;
+&lt;p&gt;이 논문은 추천시스템의 세부 영역인 Latent factor model 과 Neighborhood model을 합친 새로운 모델을 제시하고, explicit feedback 뿐만이 아닌 implicit feedback을 모델에 포함하여 성능을 높인 모델로서의 확장성을 보여준 데 큰 기여점이 있다.&lt;/p&gt;
+&lt;h3 id=&quot;abstract&quot;&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;추천시스템은 주로 CF에 의존한다. 이 중, 직접적으로 사용자와 제품을 캐릭터화하는 Latent Factor Model과 사용자 간 혹은 제품 간의 유사성을 측정하는Neighborhood model 이 합쳐지는 새로운 모델을 제시한다. 확장하여, explicit, implicit 모두 사용할 수 있는 모델 제시하고, top-K-recommendation 척도로 모델 성능을 평가한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;1introduction&quot;&gt;1.Introduction&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;CF가 오직 과거 사용자 행동에 기반하고 새로운 explicit profile 요구하지 않는 다는 점. 도메인 지식이 필요없다는 점등 상당히 성공적으로 사용됨&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Neighborhood&lt;/strong&gt; 는 아이템 간 혹은 사용자 간 관계 측정에 주력&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Latent Factor model&lt;/strong&gt;은 SVD와 비슷해서 아이템과 사용자 모두 같은 latent facotr space에서 다룸&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;넷플릭스 대회에서 얻은 교훈은 neighbor, latent factor 모두 최적이라고 하기엔 무리가 있음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Neighborhood: 근소한, local 한 관계를 잘 찾아내고 전체적인 overall한 관점에서의 평점을 잘 반영하지 못한다. 미시적&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Latent: 전체적인 구조를 잘 찾아냄. 작은 데이터 셋에서 아주 가까운 관계를 잘 못찾아냄. 거시적&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;그동안에 연구에서는 두 모델을 순차적이게 사용했다는 거에 그쳤다면, 아예 통합된 새로운 모델을 제시한다는 점이 이 논문의 시사점임&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;user input 을 모델에 통합시키는 것에 대한 중요성, explicit feedback은 항상 가능하지 않고, 상대적으로 풍부한 implicit feedback 많이 사용. 이 논문의 주 관점은 explicit feedback을 사용가능한 경우로 한정함. (동시에 이러한 점이 이 논문의 한계점이라고 생각함.) 이럴 때, implicit feedback을 모델에 접목시킴.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이 논문의 흐름은,
+-&amp;gt; 더욱 정확한 neighborhood 모델 제시 
+-&amp;gt; 최적화 기법에 기반 + implicit 포함
+-&amp;gt; SVD-based latent facotr 확장 + 설명력 포함
+-&amp;gt; 앞선 두 모델 병합
+-&amp;gt; top-k 평가척도로 생성한 모델 평가&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2preliminaries&quot;&gt;2.Preliminaries&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;u,v i,j, K, 람다에 대한 기호 설명&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;21-baseline-estimates&quot;&gt;2.1 Baseline estimates&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;bui 에 대한 설정, bias 즉, baseline 역할&lt;/li&gt;
+  &lt;li&gt;목적식을 최소화하는 bu, bi 를 찾기 위한 텀 +
+overfitting 을 막기위한 패널티 텀 추가&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;22-neighborhood-models&quot;&gt;2.2 Neighborhood models&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;기존의 방법들은 user-oriented 방법이 많았음. 이 논문의 경우, 앞으로 item-based, 즉 한명의 사용자가 평가한 비슷한 아이템 기반으로 진행될거임.&lt;/li&gt;
+  &lt;li&gt;무엇보다, prediction 내면의 설명력을 item-based가 더욱 높게 가져감&lt;/li&gt;
+  &lt;li&gt;사용자는 자기와 비슷한 사용자보다는 과거에 선호했던 아이템을 잘 알기 때문에&lt;/li&gt;
+  &lt;li&gt;아이템 기반에서는 item 간 similarity가 중요해짐.&lt;/li&gt;
+  &lt;li&gt;Pearson Correlation 기반, 더 많은 수의 유저가 평가할 수록 유사도가 높다고 판단할 수 있기에 이를 반영하여 유사도 식 도출&lt;/li&gt;
+  &lt;li&gt;nij = number of users rated both i and j&lt;/li&gt;
+  &lt;li&gt;predicted value를 neighboring item의 weighted average로 도출, 하지만 문제점으로 sustainability of similarity measure that isolates the realtions between two items (전체 이웃 셋에서 상호간 교호작용 없이), interpolation sum이 1이 된다는 건 이웃 정보가 없을 때도 이웃에 의존하게 만든다. 베이스라인에 의존하는게 합리적인 상황일 것이다.&lt;/li&gt;
+  &lt;li&gt;이러한 상황에서 논문은 이러한 문제점을 해결한 더욱 정확한 모델을 제시한다.  interpolation weight 으로 세타ij를 사용한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;23-latent-factor-models&quot;&gt;2.3 Latent factor models&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;거시적인 관점에서 데이터를 잘 설명하는 모델이다&lt;/li&gt;
+  &lt;li&gt;missing 이 많은 상태에서 SVD 효과적을 적용하기 힘들고 과적합의 위험성 도래.  이를 Regularized model로 해결한다.&lt;/li&gt;
+  &lt;li&gt;NSVD라는 모델도 있는데 model이 실제로 평가한 item 기반한다는 차이점. 이 후 NSVD 적용할 예종&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;24-the-netflix-data&quot;&gt;2.4 The Netflix data&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Netflix 데이터 관련 설명, RMSE 식&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;25-implicit-feedback&quot;&gt;2.5 Implicit feedback&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Integration 을 위해, implict 개념 설명,  Ratings Matrix -&amp;gt; Binary Matrix 관점에서 해석, 모델에 포함&lt;/li&gt;
+  &lt;li&gt;R(u): user u provided ratings&lt;/li&gt;
+  &lt;li&gt;N(u): user u provided implicit&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-a-neighborhood-model&quot;&gt;3. A Neighborhood Model&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;global optimzation 관점에서 새롭게 제시&lt;/li&gt;
+  &lt;li&gt;위에서 도출한 식이 user-specific(Sk) 기반이었으면, 이제는 한명의 user가 아닌 global 한 관점에서 user-specific weight 없애주고, wij 도입.&lt;/li&gt;
+  &lt;li&gt;여기서 weight 는 interpolation coefficient 가 아니라, baseline estimate의 offset으로 본다. global offset 역할을하면서 결측치에 대한 영향력을 한층 더 강조할 수 있다. 평가하지 않았다면 비슷한 영화에게 가중치 줄 수 없으니까.&lt;/li&gt;
+  &lt;li&gt;그리고 마찬가지로 offset 역할을 하는 implicit feedback까지 더해서 최종 모델을 완성성시킨다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이 경우, interpolation 을 사용하지 않기에, bui를 decouple 해서 나눈다. buj는 constant. 그리고, 분해하면서 bu, bi도 wij, cij 처럼 최적화되어야 하는 parameter가 된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;유저가 rating을  많이 제시하고, implicit feedback이 많아질수록, 즉 , R(u)와 N(u)가 모두 커지면 baseline estaimate과 갭이 커지므로 현재의 이분법적인 특성에서 좀 더 완화하여 -1/2 승 해줘서 모델 수정해준다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;i랑 비슷한 k개의 아이템 집합을 Sk(i)로 하고 각각 R(u), N(u) 와의 교집합으로 Rk(i,u), Nk(i,u) 정의하여 가장 영향력있는 가중치는 i와 비슷한 아이템일 것이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;new neighborhood model -&amp;gt; facilitating an efficient global optimization procedure&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Sk(i,u): u가 평가한 것들 중 i랑 가장 가까운 k개&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Rk(i,u): i랑 가까운 k개중 실제로 u가 평가한 것&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Gradient Descent 를 통해 변수 업데이트 해준다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;하이퍼 파라미터 등은 cross-validation을 통해 구하고, 이웃 사이즈 크기인 k는 k 값이 크면 클수록 항상 예측 정확도가 높았다. 이에 계산 비용과 예측 정확도 사이에 trade-off를 고려해야한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이렇게 설정한 모델은 k 값이 커질수록 RMSE가 효과적으로 감소하였고 implict feedback을 제외시키면 RMSE 측면에서 효과가 감퇴함을 확인할 수 있었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;예측은 바로 가능하지만, k 증가할수록 파라미터 예측하는데 소요시간이 그만큼 커진다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4-latent-factor-models-revisited&quot;&gt;4. Latent Factor Models Revisited&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;기존의 SVD 기반의 모델에서 확장해나가는 방식&lt;/li&gt;
+  &lt;li&gt;implicit feedback을 접목시킨 버전&lt;/li&gt;
+  &lt;li&gt;그냥 user를 나타내는 vector 인 explicit parameter pu 대신에 user가 좋아하는 item 기반의 pi 사용. item 관점에서 바라보는 “Asymmetric-SVD”&lt;/li&gt;
+  &lt;li&gt;장점: 적은 수의 parmeter, 새로운 user에 대한 빠른 피드백(user에 대한 파라미터가 모델에 없기에), 설명도 증가, implicit feedback 에 대한 효과적인 통합&lt;/li&gt;
+  &lt;li&gt;역시 regularized term 추가해준 뒤 최종 ASVD 모델 구성&lt;/li&gt;
+  &lt;li&gt;실제로 SVD보다 더 높은 예측 정확도 가짐. implicit feedback 덕분&lt;/li&gt;
+  &lt;li&gt;SVD++: xj 대신에 explicit raings에 의해 학습되는 pu 벡터 사용, 위에 언급한 ASVD의 장점을 가질 수 없지만, 예측 정확도면에서는 효과적&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-an-integrated-model&quot;&gt;5. An Integrated Model&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;neighborhood + SVD++&lt;/li&gt;
+  &lt;li&gt;최종 form = general properties + iteraction between user profile and item profile + neigborhood&lt;/li&gt;
+  &lt;li&gt;k 높을수록 benefit 없음. 이미 latent factor model이 global 한 information 잘 표현하기 때문에
+-SVD++ 와 달리, neighborhood 와 Asymmetric-SVD 는 direct 설명과 new user에 대해서 다시 re-train해야할 필요 없음&lt;/li&gt;
+  &lt;li&gt;설명력이 더 중요할 경우 SVD++ 대신에 Astmmetric-SVD 사용하는게 합리적&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;6-evaluation-through-a-top-k-recommender&quot;&gt;6. Evaluation Through a Top-k-recommender&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;사용자의 만족감을 증대할 수 있는 목표가 궁극적으로 추천시스템의 목표, 그렇다면 RMSE를 10% 줄이는게 사용자 경험에 어떠한 효과를 가지는지?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;내림차순으로 정렬했을 때, 사용자에게 가장 어필이 되는 k개의 아이템 추천&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;-i와 1000개의 random한 영화골라서 내림차순으로 정렬한 뒤, top-k 추천.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Best: i 앞에 아무 영화도 존재 하지 않는 경우 (0%)&lt;/li&gt;
+  &lt;li&gt;Worse: i 앞에 모든 영화 존재하는 경우 (100%)&lt;/li&gt;
+  &lt;li&gt;MovieAvg &amp;lt; CorNgbr &amp;lt; WgtNgbr &amp;lt; SVD &amp;lt; Integrated
+-rank가 작을수록 better recommendation, 즉 500개 중 평점 5점인 하나의 영화가 추천될 확률이 integrated model에서 높음.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;7-conclusion&quot;&gt;7. Conclusion&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;새로운 neighborhood model 제시 (global opt 관점, 설명도, 새로운 데이터에 대한 재학습 없이)&lt;/li&gt;
+  &lt;li&gt;SVD-based Latent factor 모델의 확장 (implicit feedback 포함, 설명력 포함)&lt;/li&gt;
+  &lt;li&gt;New neighborhood model -&amp;gt; integrated model&lt;/li&gt;
+  &lt;li&gt;top-K-recommender 평가척도 제시,&lt;/li&gt;
+  &lt;li&gt;가장 큰 인사이트 -&amp;gt; 다양한 데이터를 다루면서 향상된 추천시스템 퀄리티 (implicit feedback 등)&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Sukwon Yun</name><email>tyryey89@gmail.com</email></author><category term="추천시스템" /><summary type="html">Koren, Yehuda. “Factorization meets the neighborhood: a multifaceted collaborative filtering model.” Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining. 2008.</summary></entry><entry><title type="html">[추천시스템] Probabilistic Matrix Factorization</title><link href="https://sukwonyun.github.io/%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C/pmf/" rel="alternate" type="text/html" title="[추천시스템] Probabilistic Matrix Factorization" /><published>2021-02-18T00:00:00+09:00</published><updated>2021-02-18T00:00:00+09:00</updated><id>https://sukwonyun.github.io/%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C/pmf</id><content type="html" xml:base="https://sukwonyun.github.io/%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C/pmf/">&lt;p&gt;Mnih, Andriy, and Russ R. Salakhutdinov. “Probabilistic matrix factorization.” Advances in neural information processing systems 20 (2007): 1257-1264.&lt;/p&gt;
+
+&lt;h3 id=&quot;abstract&quot;&gt;Abstract&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;CF 단점: large datasets with few rating
+    &lt;ol&gt;
+      &lt;li&gt;PMF -&amp;gt; large, sparse에 강건함&lt;/li&gt;
+      &lt;li&gt;적응형 모델, 용량 제어&lt;/li&gt;
+      &lt;li&gt;user에 대한 제약 조건 있을때 PMF&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1-introduction&quot;&gt;1. Introduction&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Low-dimensional factor models -&amp;gt; small number of unobserved factors&lt;/li&gt;
+  &lt;li&gt;Linear factor model: 사용자의 선호도가 user-specific coefficient 를 사용한 item factor vector의 선형결합으로 이루어짐&lt;/li&gt;
+  &lt;li&gt;preference matrix R: N x M&lt;/li&gt;
+  &lt;li&gt;user coefficient matrix U’: N x D&lt;/li&gt;
+  &lt;li&gt;factor matrix V: D x M&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;R = U’ x V
+-&amp;gt; finding best rank-D approximation&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;최근 제시된 모델에 따르면 hidden factor 변수가 user rating 을 표현하는데 connection 가짐. 하지만 정확한 추론이 intractable 하다는 단점. hidden factor 에 대한 사후 분포 연산 등이 느리거나 부정확함&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SVD -&amp;gt; R=U’V  로 추론해서 실제 R 과 거리 최소화되는 R 찾는 것. 오직 관찰된 값들에 대해서 계산되고 조그만 변화에 의해서도 non-convex 문제에 해당돼서 어려워진다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;랭크에 대한 제약을 두는 방법 대신에 U, V의 크기에 패널티를 주는 방식도 데이터가 커지면 Sparse Semi-definite program이 돼서 어려워진다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;위의 방법들이 효과적이지 않았던 이유는, Large scale에 적합하지 않았고, few ratings에 대한 정확한 추론이 어려웠다. 이에 실제 MovieLens, EachMovie 등의 데이터에선 일정 수 이하의 평가를 한 유저는 제거했다. Netflix data는 imbalance하고 이러한 면이 현실의 특성을 더욱 잘 반영한다.&lt;/li&gt;
+  &lt;li&gt;이 논문의 목적은 다음과 같다.
+    &lt;ol&gt;
+      &lt;li&gt;scale에 linear한 드물고 imbalance에 강건히 대응하기 위한 PMF 제안.&lt;/li&gt;
+      &lt;li&gt;PMF에서 user preference matrix 는 lower-rank user, movie matrices 로 구성&lt;/li&gt;
+      &lt;li&gt;모델 복잡도를 조절할 수 있는 adaptive prior 포함한 PMF 모델 제시&lt;/li&gt;
+      &lt;li&gt;User 입장에서의 Constraint 가진 PMF 제안&lt;/li&gt;
+      &lt;li&gt;기존 SVD 보다 효과적임을 입증, 특히 constrained PMF가 적은 rating에 효과적&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-probabilistic-matrix-factorizationpmf&quot;&gt;2. Probabilistic Matrix Factorization(PMF)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;M movies&lt;/li&gt;
+  &lt;li&gt;N users&lt;/li&gt;
+  &lt;li&gt;1 to K ratings&lt;/li&gt;
+  &lt;li&gt;U = D x N (latent user feature matrix)&lt;/li&gt;
+  &lt;li&gt;V = D x M (latent movie feature matrix)&lt;/li&gt;
+  &lt;li&gt;Uj = user specific latent feature vector&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Vj = movie-specific latent feature vector&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;모델 성능이 RMSE로 평가되기 때문에, probabilistic linear model with Gaussian observation noise 을 test set에 채택한다&lt;/li&gt;
+  &lt;li&gt;이때 Iij는 indicator function 으로 i가 j를평가했으면 1, 아니면 0으로 표기된다.&lt;/li&gt;
+  &lt;li&gt;그리고 zero-mean spherical Gaussian prior를 user and movie feature vector에 적용한다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이후, log of posterior distribution 을 최대화하는 건 이차항의 정규화 텀을 넣은 목적식의 SSE를 최소화하는 것과 같다. (단, variance 등의 하이퍼파라미터 고정)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;목적식을 최소화하는, local minimum은 U, V에 대한 경사 하강법을 적용시키면 된다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이 모델은 SVD의 probabilistic extension이다. 모든 평점들이 관측되는 조건이라면, SVD와 동일할 것이다. 단, prior variance 인 sigma_u, sigma_v가 무한으로 간다면 정의한 람다_u, 람다_v가 0으로 갈 것이기에.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이 논문에서는 위의 linear-Gaussian model 대신에 range 범위를 조절하기 위해 U,V의 내적 값이 dot product 안에 해당될 수 있도록 sigmoid를 거치게 해준다. 즉, 정규분포의 평균 값이 0~1 사이의 범위를 가지게 해준다. 동시에 rating 값도 t(x) = x-1 / K-1 로 조절해준다. 목적식을 최소화하는 알고리즘은, steepest descent algorithm을 사용하는데, 관측치에 선형적으로 비례하는 시간이 소요된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-automatic-complexity-control-for-pmf-models&quot;&gt;3. Automatic Complexity Control for PMF Models&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;PMF 모델이 더욱 일반화 되기 위해서 Capacity Control이 중요해지는데 통상적으론 feature vector의 dimensionality를 줄이는 방법, 정규화 텀을 도입하는 방법이 있는데 각가 데이터 셋이 언밸런스한 경우 효과적이지 않고, 찾기 위해 계산비용이 많이 든다는 점에서 단점을 가진다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이 논문에서는 PMF 모델에서 정규화 파라미터를 학습하는데 시간을 많이 들이지않고 자동적으로 찾아내는 방법을 제안한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;파라미터와 하이퍼파라미터의 점 추정을 log-posterior 를 최대화하는 방법을 기반으로 한다. MAP estimation과 spherical  prior 사용을 통해 하이퍼파라미터 자동 결정한다. diagonal, full covariance matrix 등을 사용한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Prior가 Gaussian 이면, 최적화된 하이퍼파라미터가 closed form이고 하이퍼파라미터 최적화와 고정된 하이퍼파라미터로 steepest ascent 를 사용해 feature vector를 업데이트 하는 방법을 번갈아서 진행한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Prior가 Mixture of Gaussian 이면, EM 방법으로 하이퍼파라미터가 업데이트 되고 close form을 하이퍼파라미터에 대한 conjugate prior을 다루기 위해 연장하기가 수월하다. conjugate = prior, posterior 같을 때.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4-constrained-pmf&quot;&gt;4. Constrained PMF&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;infrequent user에 대해 user-specific feature vector에 대한 제약을 새롭게 정의해서 제안한다.&lt;/li&gt;
+  &lt;li&gt;W = D x M (similarity constraint matrix)
+W의 i번째 열은 한 유저가 평가한 특정 영화가 그 유저의 feature vector의 prior mean에 대해 얼마만큼의 영향력을 가졌는지 나타낸다. (prior mean 이라고 생각, 즉 0으로 설정했던 mean과 달리 0 이 아닐때의 영향력 고려)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;결과적으로, 같은 영화를 본 유저들은 그들의 feature vector에 대한 비슷한 prior distribution을 가진다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이때 Yi 는 mean of prior distribution에 더해진 offset 역할을 한다.U’V에 넣어주고 sigmoid를 거쳐준다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;W를 정규화해주기 위해 zero-mean spherical Gaussian prior로 mu를 넣어준다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;최종 quadratic regularization term을 만들어주고 SSE를 최소화하는 목적식을 설정해준다. 경사하강법으로 Y, V, W를 구해주고 constrained PMF의 경우, 빠르고 간단한 학습이 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-experimental-results&quot;&gt;5. Experimental Results&lt;/h3&gt;
+&lt;h4 id=&quot;51-description-of-netflix-data&quot;&gt;5.1 Description of Netflix Data&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;넷플릭스 데이터에 대한 설명, validation data, test det 등. 오버피팅 방지를 위해 RMSE 척도 사용&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;추가적인 인사이트를 위해 이 논문에서는 더 까다로운 설정을 함. 50%가 넘는 사용자들이 10개 이하의 영화에 평점을 매김&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;52-details-of-training&quot;&gt;5.2 Details of Training&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;100,000 mini-batch로 설정 한 mini-batch 이후에 feature vector update&lt;/li&gt;
+  &lt;li&gt;lr = 0.005, momentum = 0.9&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;53-results-for-pmf-with-adaptive-priors&quot;&gt;5.3 Results for PMF with Adaptive Priors&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;PMF with adaptive prior 의 성능 평가를 위해 10차원의 feature를 씀.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;PMF1: 람다_u = 0.01, 람다_v = 0.001&lt;/li&gt;
+  &lt;li&gt;PMF2: 람다_u = 0.001 람다_v = 0.0001&lt;/li&gt;
+  &lt;li&gt;PMFA1: spherical covariance (adaptive)&lt;/li&gt;
+  &lt;li&gt;PMFA2: diagonal covariance (adaptive)&lt;/li&gt;
+  &lt;li&gt;10, 100번의 데이터 처리할때마다 업데이트&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SVD, PMF2 초반에 괜찮다가 SVD 오버핏하는 경향, PMF1 underfit 하는 경향, 따라서 adaptive 한 경우가 실제상황에서 퍼포먼스가 좋다&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;use of adaptive prior 의 효과성, 때론 diagonal covariance가 greedy version에 효과적.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;54-results-for-constrained-pmf&quot;&gt;5.4 Results for Constrained PMF&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;D=30, 람다=0.002, SVD-&amp;gt; 심하게 overfit&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;constrained PMF가 unconstrained PMF보다 빠르게 수렴하고 적은 수의 관측에서 PMF 보다 효과적.  관측 수 많아질수록 두 PMF의 성능은 비슷해짐&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;또 하나의 흥미로운 측면은, 어떤 영화를 봤는지만 알고 실제 rating은 모르는 경우에서도  movie average 모델보다 좋은 성능 냄. 이런 상황에서도 효과적으로 도입할 수 있음을 암시함.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;넷플릭스 데이터 셋 전체 쓴 거랑 효과가 비슷함. 람다가 0.001 일때도 비슷한 rmse 효과 보이는 걸로 봐서, 일반화된 특성을 가졌다고 볼 수 있음.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;movies that were viewed but rating unknown 인 카테고리 추가하는 경우에서도 constrained PMF가 효과적임&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;선형적으로 PMF, PMF adaptive, constrained PMF 조합하면 0.8970 error rate 확보 가능. multiple RBM 이랑 합쳐지면 더욱 좋은 성능. 0.8861까지 발전&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;6-summary-and-discussion&quot;&gt;6. Summary and Discussion&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;PMF 개념 제시 후&lt;/li&gt;
+  &lt;li&gt;PMF with learnable prior&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PMF with constrained situation&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;training 과정에서의 효과성은 전체 사후 분포를 추정하는 것이 아닌 점 추정으로 파리미터와 하이퍼 파라미터를 구하는 과정에서 입증.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;fully Bayesian method 도입하면 더욱 예측 성능 높아짐.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Sukwon Yun</name><email>tyryey89@gmail.com</email></author><category term="추천시스템" /><summary type="html">Mnih, Andriy, and Russ R. Salakhutdinov. “Probabilistic matrix factorization.” Advances in neural information processing systems 20 (2007): 1257-1264.</summary></entry><entry><title type="html">[지식그래프] (TransR) Learning Entity and Relation Embeddings for Knowledge Graph Completion</title><link href="https://sukwonyun.github.io/%EC%A7%80%EC%8B%9D%EA%B7%B8%EB%9E%98%ED%94%84/TransH/" rel="alternate" type="text/html" title="[지식그래프] (TransR) Learning Entity and Relation Embeddings for Knowledge Graph Completion" /><published>2021-02-10T22:03:43+09:00</published><updated>2021-02-10T22:03:43+09:00</updated><id>https://sukwonyun.github.io/%EC%A7%80%EC%8B%9D%EA%B7%B8%EB%9E%98%ED%94%84/TransH</id><content type="html" xml:base="https://sukwonyun.github.io/%EC%A7%80%EC%8B%9D%EA%B7%B8%EB%9E%98%ED%94%84/TransH/">&lt;p&gt;Lin, Yankai, et al. “Learning entity and relation embeddings for knowledge graph completion.” Proceedings of the AAAI Conference on Artificial Intelligence. Vol. 29. No. 1. 2015.&lt;/p&gt;
 
 &lt;h3 id=&quot;in-short-embedding-entities-and-relationships-in-seperate-entity-and-realtion-space&quot;&gt;&lt;em&gt;In short, “Embedding Entities and Relationships in Seperate Entity and Realtion space”&lt;/em&gt;&lt;/h3&gt;
 

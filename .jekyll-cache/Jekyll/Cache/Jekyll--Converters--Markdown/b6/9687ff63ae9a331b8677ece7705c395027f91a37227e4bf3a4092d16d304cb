@@ -1,0 +1,160 @@
+I"b+<p>Koren, Yehuda. “Factorization meets the neighborhood: a multifaceted collaborative filtering model.” Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining. 2008.</p>
+
+<h3 id="in-short-latent-factor-model--neighborhood-model-explicit--implicit"><em>In short, “Latent Factor model + Neighborhood model, Explicit + Implicit”</em></h3>
+
+<h3 id="about">About</h3>
+<p>이 논문은 추천시스템의 세부 영역인 Latent factor model 과 Neighborhood model을 합친 새로운 모델을 제시하고, explicit feedback 뿐만이 아닌 implicit feedback을 모델에 포함하여 성능을 높인 모델로서의 확장성을 보여준 데 큰 기여점이 있다.</p>
+<h3 id="abstract">Abstract</h3>
+<p>추천시스템은 주로 CF에 의존한다. 이 중, 직접적으로 사용자와 제품을 캐릭터화하는 Latent Factor Model과 사용자 간 혹은 제품 간의 유사성을 측정하는Neighborhood model 이 합쳐지는 새로운 모델을 제시한다. 확장하여, explicit, implicit 모두 사용할 수 있는 모델 제시하고, top-K-recommendation 척도로 모델 성능을 평가한다.</p>
+
+<h3 id="1introduction">1.Introduction</h3>
+<ul>
+  <li>CF가 오직 과거 사용자 행동에 기반하고 새로운 explicit profile 요구하지 않는 다는 점. 도메인 지식이 필요없다는 점등 상당히 성공적으로 사용됨</li>
+  <li><strong>Neighborhood</strong> 는 아이템 간 혹은 사용자 간 관계 측정에 주력</li>
+  <li><strong>Latent Factor model</strong>은 SVD와 비슷해서 아이템과 사용자 모두 같은 latent facotr space에서 다룸</li>
+  <li>
+    <p>넷플릭스 대회에서 얻은 교훈은 neighbor, latent factor 모두 최적이라고 하기엔 무리가 있음</p>
+  </li>
+  <li>
+    <p>Neighborhood: 근소한, local 한 관계를 잘 찾아내고 전체적인 overall한 관점에서의 평점을 잘 반영하지 못한다. 미시적</p>
+  </li>
+  <li>
+    <p>Latent: 전체적인 구조를 잘 찾아냄. 작은 데이터 셋에서 아주 가까운 관계를 잘 못찾아냄. 거시적</p>
+  </li>
+  <li>
+    <p>그동안에 연구에서는 두 모델을 순차적이게 사용했다는 거에 그쳤다면, 아예 통합된 새로운 모델을 제시한다는 점이 이 논문의 시사점임</p>
+  </li>
+  <li>
+    <p>user input 을 모델에 통합시키는 것에 대한 중요성, explicit feedback은 항상 가능하지 않고, 상대적으로 풍부한 implicit feedback 많이 사용. 이 논문의 주 관점은 explicit feedback을 사용가능한 경우로 한정함. (동시에 이러한 점이 이 논문의 한계점이라고 생각함.) 이럴 때, implicit feedback을 모델에 접목시킴.</p>
+  </li>
+  <li>이 논문의 흐름은,
+-&gt; 더욱 정확한 neighborhood 모델 제시 
+-&gt; 최적화 기법에 기반 + implicit 포함
+-&gt; SVD-based latent facotr 확장 + 설명력 포함
+-&gt; 앞선 두 모델 병합
+-&gt; top-k 평가척도로 생성한 모델 평가</li>
+</ul>
+
+<h3 id="2preliminaries">2.Preliminaries</h3>
+<ul>
+  <li>u,v i,j, K, 람다에 대한 기호 설명</li>
+</ul>
+
+<h4 id="21-baseline-estimates">2.1 Baseline estimates</h4>
+<ul>
+  <li>bui 에 대한 설정, bias 즉, baseline 역할</li>
+  <li>목적식을 최소화하는 bu, bi 를 찾기 위한 텀 +
+overfitting 을 막기위한 패널티 텀 추가</li>
+</ul>
+
+<h4 id="22-neighborhood-models">2.2 Neighborhood models</h4>
+<ul>
+  <li>기존의 방법들은 user-oriented 방법이 많았음. 이 논문의 경우, 앞으로 item-based, 즉 한명의 사용자가 평가한 비슷한 아이템 기반으로 진행될거임.</li>
+  <li>무엇보다, prediction 내면의 설명력을 item-based가 더욱 높게 가져감</li>
+  <li>사용자는 자기와 비슷한 사용자보다는 과거에 선호했던 아이템을 잘 알기 때문에</li>
+  <li>아이템 기반에서는 item 간 similarity가 중요해짐.</li>
+  <li>Pearson Correlation 기반, 더 많은 수의 유저가 평가할 수록 유사도가 높다고 판단할 수 있기에 이를 반영하여 유사도 식 도출</li>
+  <li>nij = number of users rated both i and j</li>
+  <li>predicted value를 neighboring item의 weighted average로 도출, 하지만 문제점으로 sustainability of similarity measure that isolates the realtions between two items (전체 이웃 셋에서 상호간 교호작용 없이), interpolation sum이 1이 된다는 건 이웃 정보가 없을 때도 이웃에 의존하게 만든다. 베이스라인에 의존하는게 합리적인 상황일 것이다.</li>
+  <li>이러한 상황에서 논문은 이러한 문제점을 해결한 더욱 정확한 모델을 제시한다.  interpolation weight 으로 세타ij를 사용한다.</li>
+</ul>
+
+<h4 id="23-latent-factor-models">2.3 Latent factor models</h4>
+<ul>
+  <li>거시적인 관점에서 데이터를 잘 설명하는 모델이다</li>
+  <li>missing 이 많은 상태에서 SVD 효과적을 적용하기 힘들고 과적합의 위험성 도래.  이를 Regularized model로 해결한다.</li>
+  <li>NSVD라는 모델도 있는데 model이 실제로 평가한 item 기반한다는 차이점. 이 후 NSVD 적용할 예종</li>
+</ul>
+
+<h4 id="24-the-netflix-data">2.4 The Netflix data</h4>
+<ul>
+  <li>Netflix 데이터 관련 설명, RMSE 식</li>
+</ul>
+
+<h4 id="25-implicit-feedback">2.5 Implicit feedback</h4>
+<ul>
+  <li>Integration 을 위해, implict 개념 설명,  Ratings Matrix -&gt; Binary Matrix 관점에서 해석, 모델에 포함</li>
+  <li>R(u): user u provided ratings</li>
+  <li>N(u): user u provided implicit</li>
+</ul>
+
+<h3 id="3-a-neighborhood-model">3. A Neighborhood Model</h3>
+<ul>
+  <li>global optimzation 관점에서 새롭게 제시</li>
+  <li>위에서 도출한 식이 user-specific(Sk) 기반이었으면, 이제는 한명의 user가 아닌 global 한 관점에서 user-specific weight 없애주고, wij 도입.</li>
+  <li>여기서 weight 는 interpolation coefficient 가 아니라, baseline estimate의 offset으로 본다. global offset 역할을하면서 결측치에 대한 영향력을 한층 더 강조할 수 있다. 평가하지 않았다면 비슷한 영화에게 가중치 줄 수 없으니까.</li>
+  <li>그리고 마찬가지로 offset 역할을 하는 implicit feedback까지 더해서 최종 모델을 완성성시킨다.</li>
+  <li>
+    <p>이 경우, interpolation 을 사용하지 않기에, bui를 decouple 해서 나눈다. buj는 constant. 그리고, 분해하면서 bu, bi도 wij, cij 처럼 최적화되어야 하는 parameter가 된다.</p>
+  </li>
+  <li>유저가 rating을  많이 제시하고, implicit feedback이 많아질수록, 즉 , R(u)와 N(u)가 모두 커지면 baseline estaimate과 갭이 커지므로 현재의 이분법적인 특성에서 좀 더 완화하여 -1/2 승 해줘서 모델 수정해준다.</li>
+  <li>
+    <p>i랑 비슷한 k개의 아이템 집합을 Sk(i)로 하고 각각 R(u), N(u) 와의 교집합으로 Rk(i,u), Nk(i,u) 정의하여 가장 영향력있는 가중치는 i와 비슷한 아이템일 것이다.</p>
+  </li>
+  <li>
+    <p>new neighborhood model -&gt; facilitating an efficient global optimization procedure</p>
+  </li>
+  <li>Sk(i,u): u가 평가한 것들 중 i랑 가장 가까운 k개</li>
+  <li>
+    <p>Rk(i,u): i랑 가까운 k개중 실제로 u가 평가한 것</p>
+  </li>
+  <li>
+    <p>Gradient Descent 를 통해 변수 업데이트 해준다.</p>
+  </li>
+  <li>
+    <p>하이퍼 파라미터 등은 cross-validation을 통해 구하고, 이웃 사이즈 크기인 k는 k 값이 크면 클수록 항상 예측 정확도가 높았다. 이에 계산 비용과 예측 정확도 사이에 trade-off를 고려해야한다.</p>
+  </li>
+  <li>
+    <p>이렇게 설정한 모델은 k 값이 커질수록 RMSE가 효과적으로 감소하였고 implict feedback을 제외시키면 RMSE 측면에서 효과가 감퇴함을 확인할 수 있었다.</p>
+  </li>
+  <li>예측은 바로 가능하지만, k 증가할수록 파라미터 예측하는데 소요시간이 그만큼 커진다.</li>
+</ul>
+
+<h3 id="4-latent-factor-models-revisited">4. Latent Factor Models Revisited</h3>
+<ul>
+  <li>기존의 SVD 기반의 모델에서 확장해나가는 방식</li>
+  <li>implicit feedback을 접목시킨 버전</li>
+  <li>그냥 user를 나타내는 vector 인 explicit parameter pu 대신에 user가 좋아하는 item 기반의 pi 사용. item 관점에서 바라보는 “Asymmetric-SVD”</li>
+  <li>장점: 적은 수의 parmeter, 새로운 user에 대한 빠른 피드백(user에 대한 파라미터가 모델에 없기에), 설명도 증가, implicit feedback 에 대한 효과적인 통합</li>
+  <li>역시 regularized term 추가해준 뒤 최종 ASVD 모델 구성</li>
+  <li>실제로 SVD보다 더 높은 예측 정확도 가짐. implicit feedback 덕분</li>
+  <li>SVD++: xj 대신에 explicit raings에 의해 학습되는 pu 벡터 사용, 위에 언급한 ASVD의 장점을 가질 수 없지만, 예측 정확도면에서는 효과적</li>
+</ul>
+
+<h3 id="5-an-integrated-model">5. An Integrated Model</h3>
+<ul>
+  <li>neighborhood + SVD++</li>
+  <li>최종 form = general properties + iteraction between user profile and item profile + neigborhood</li>
+  <li>k 높을수록 benefit 없음. 이미 latent factor model이 global 한 information 잘 표현하기 때문에
+-SVD++ 와 달리, neighborhood 와 Asymmetric-SVD 는 direct 설명과 new user에 대해서 다시 re-train해야할 필요 없음</li>
+  <li>설명력이 더 중요할 경우 SVD++ 대신에 Astmmetric-SVD 사용하는게 합리적</li>
+</ul>
+
+<h3 style="color:red">하이</h3>
+<h3 id="6-evaluation-through-a-top-k-recommender">6. Evaluation Through a Top-k-recommender</h3>
+<ul>
+  <li>
+    <p>사용자의 만족감을 증대할 수 있는 목표가 궁극적으로 추천시스템의 목표, 그렇다면 RMSE를 10% 줄이는게 사용자 경험에 어떠한 효과를 가지는지?</p>
+  </li>
+  <li>
+    <p>내림차순으로 정렬했을 때, 사용자에게 가장 어필이 되는 k개의 아이템 추천</p>
+  </li>
+</ul>
+
+<p>-i와 1000개의 random한 영화골라서 내림차순으로 정렬한 뒤, top-k 추천.</p>
+<ul>
+  <li>Best: i 앞에 아무 영화도 존재 하지 않는 경우 (0%)</li>
+  <li>Worse: i 앞에 모든 영화 존재하는 경우 (100%)</li>
+  <li>MovieAvg &lt; CorNgbr &lt; WgtNgbr &lt; SVD &lt; Integrated
+-rank가 작을수록 better recommendation, 즉 500개 중 평점 5점인 하나의 영화가 추천될 확률이 integrated model에서 높음.</li>
+</ul>
+
+<h3 id="7-discussion">7. Discussion</h3>
+<ol>
+  <li>새로운 neighborhood model 제시 (global opt 관점, 설명도, 새로운 데이터에 대한 재학습 없이)</li>
+  <li>SVD-based Latent factor 모델의 확장 (implicit feedback 포함, 설명력 포함)</li>
+  <li>New neighborhood model -&gt; integrated model</li>
+  <li>top-K-recommender 평가척도 제시,</li>
+  <li>가장 큰 인사이트 -&gt; 다양한 데이터를 다루면서 향상된 추천시스템 퀄리티 (implicit feedback 등)</li>
+</ol>
+:ET

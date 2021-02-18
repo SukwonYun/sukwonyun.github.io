@@ -1,0 +1,173 @@
+I"P'<p>Mnih, Andriy, and Russ R. Salakhutdinov. “Probabilistic matrix factorization.” Advances in neural information processing systems 20 (2007): 1257-1264.</p>
+
+<h3 id="abstract">Abstract</h3>
+<ul>
+  <li>CF 단점: large datasets with few rating
+    <ol>
+      <li>PMF -&gt; large, sparse에 강건함</li>
+      <li>적응형 모델, 용량 제어</li>
+      <li>user에 대한 제약 조건 있을때 PMF</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="1-introduction">1. Introduction</h3>
+<ul>
+  <li>Low-dimensional factor models -&gt; small number of unobserved factors</li>
+  <li>Linear factor model: 사용자의 선호도가 user-specific coefficient 를 사용한 item factor vector의 선형결합으로 이루어짐</li>
+  <li>preference matrix R: N x M</li>
+  <li>user coefficient matrix U’: N x D</li>
+  <li>factor matrix V: D x M</li>
+  <li>
+    <p>R = U’ x V
+-&gt; finding best rank-D approximation</p>
+  </li>
+  <li>
+    <p>최근 제시된 모델에 따르면 hidden factor 변수가 user rating 을 표현하는데 connection 가짐. 하지만 정확한 추론이 intractable 하다는 단점. hidden factor 에 대한 사후 분포 연산 등이 느리거나 부정확함</p>
+  </li>
+  <li>
+    <p>SVD -&gt; R=U’V  로 추론해서 실제 R 과 거리 최소화되는 R 찾는 것. 오직 관찰된 값들에 대해서 계산되고 조그만 변화에 의해서도 non-convex 문제에 해당돼서 어려워진다</p>
+  </li>
+  <li>
+    <p>랭크에 대한 제약을 두는 방법 대신에 U, V의 크기에 패널티를 주는 방식도 데이터가 커지면 Sparse Semi-definite program이 돼서 어려워진다.</p>
+  </li>
+  <li>위의 방법들이 효과적이지 않았던 이유는, Large scale에 적합하지 않았고, few ratings에 대한 정확한 추론이 어려웠다. 이에 실제 MovieLens, EachMovie 등의 데이터에선 일정 수 이하의 평가를 한 유저는 제거했다. Netflix data는 imbalance하고 이러한 면이 현실의 특성을 더욱 잘 반영한다.</li>
+  <li>이 논문의 목적은 다음과 같다.
+    <ol>
+      <li>scale에 linear한 드물고 imbalance에 강건히 대응하기 위한 PMF 제안.</li>
+      <li>PMF에서 user preference matrix 는 lower-rank user, movie matrices 로 구성</li>
+      <li>모델 복잡도를 조절할 수 있는 adaptive prior 포함한 PMF 모델 제시</li>
+      <li>User 입장에서의 Constraint 가진 PMF 제안</li>
+      <li>기존 SVD 보다 효과적임을 입증, 특히 constrained PMF가 적은 rating에 효과적</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="2-probabilistic-matrix-factorizationpmf">2. Probabilistic Matrix Factorization(PMF)</h3>
+<ul>
+  <li>M movies</li>
+  <li>N users</li>
+  <li>1 to K ratings</li>
+  <li>U = D x N (latent user feature matrix)</li>
+  <li>V = D x M (latent movie feature matrix)</li>
+  <li>Uj = user specific latent feature vector</li>
+  <li>
+    <p>Vj = movie-specific latent feature vector</p>
+  </li>
+  <li>모델 성능이 RMSE로 평가되기 때문에, probabilistic linear model with Gaussian observation noise 을 test set에 채택한다</li>
+  <li>이때 Iij는 indicator function 으로 i가 j를평가했으면 1, 아니면 0으로 표기된다.</li>
+  <li>그리고 zero-mean spherical Gaussian prior를 user and movie feature vector에 적용한다.</li>
+  <li>
+    <p>이후, log of posterior distribution 을 최대화하는 건 이차항의 정규화 텀을 넣은 목적식의 SSE를 최소화하는 것과 같다. (단, variance 등의 하이퍼파라미터 고정)</p>
+  </li>
+  <li>목적식을 최소화하는, local minimum은 U, V에 대한 경사 하강법을 적용시키면 된다</li>
+</ul>
+
+<p>이 모델은 SVD의 probabilistic extension이다. 모든 평점들이 관측되는 조건이라면, SVD와 동일할 것이다. 단, prior variance 인 sigma_u, sigma_v가 무한으로 간다면 정의한 람다_u, 람다_v가 0으로 갈 것이기에.</p>
+
+<ul>
+  <li>이 논문에서는 위의 linear-Gaussian model 대신에 range 범위를 조절하기 위해 U,V의 내적 값이 dot product 안에 해당될 수 있도록 sigmoid를 거치게 해준다. 즉, 정규분포의 평균 값이 0~1 사이의 범위를 가지게 해준다. 동시에 rating 값도 t(x) = x-1 / K-1 로 조절해준다. 목적식을 최소화하는 알고리즘은, steepest descent algorithm을 사용하는데, 관측치에 선형적으로 비례하는 시간이 소요된다.</li>
+</ul>
+
+<h3 id="3-automatic-complexity-control-for-pmf-models">3. Automatic Complexity Control for PMF Models</h3>
+<ul>
+  <li>
+    <p>PMF 모델이 더욱 일반화 되기 위해서 Capacity Control이 중요해지는데 통상적으론 feature vector의 dimensionality를 줄이는 방법, 정규화 텀을 도입하는 방법이 있는데 각가 데이터 셋이 언밸런스한 경우 효과적이지 않고, 찾기 위해 계산비용이 많이 든다는 점에서 단점을 가진다.</p>
+  </li>
+  <li>
+    <p>이 논문에서는 PMF 모델에서 정규화 파라미터를 학습하는데 시간을 많이 들이지않고 자동적으로 찾아내는 방법을 제안한다.</p>
+  </li>
+  <li>
+    <p>파라미터와 하이퍼파라미터의 점 추정을 log-posterior 를 최대화하는 방법을 기반으로 한다. MAP estimation과 spherical  prior 사용을 통해 하이퍼파라미터 자동 결정한다. diagonal, full covariance matrix 등을 사용한다.</p>
+  </li>
+  <li>
+    <p>Prior가 Gaussian 이면, 최적화된 하이퍼파라미터가 closed form이고 하이퍼파라미터 최적화와 고정된 하이퍼파라미터로 steepest ascent 를 사용해 feature vector를 업데이트 하는 방법을 번갈아서 진행한다.</p>
+  </li>
+  <li>
+    <p>Prior가 Mixture of Gaussian 이면, EM 방법으로 하이퍼파라미터가 업데이트 되고 close form을 하이퍼파라미터에 대한 conjugate prior을 다루기 위해 연장하기가 수월하다. conjugate = prior, posterior 같을 때.</p>
+  </li>
+</ul>
+
+<p>&lt;4. Constrained PMF&gt;</p>
+<ul>
+  <li>infrequent user에 대해 user-specific feature vector에 대한 제약을 새롭게 정의해서 제안한다.</li>
+  <li>W = D x M (similarity constraint matrix)
+W의 i번째 열은 한 유저가 평가한 특정 영화가 그 유저의 feature vector의 prior mean에 대해 얼마만큼의 영향력을 가졌는지 나타낸다. (prior mean 이라고 생각, 즉 0으로 설정했던 mean과 달리 0 이 아닐때의 영향력 고려)</li>
+</ul>
+
+<p>결과적으로, 같은 영화를 본 유저들은 그들의 feature vector에 대한 비슷한 prior distribution을 가진다.</p>
+
+<ul>
+  <li>이때 Yi 는 mean of prior distribution에 더해진 offset 역할을 한다.U’V에 넣어주고 sigmoid를 거쳐준다.</li>
+</ul>
+
+<p>W를 정규화해주기 위해 zero-mean spherical Gaussian prior로 mu를 넣어준다.</p>
+
+<ul>
+  <li>최종 quadratic regularization term을 만들어주고 SSE를 최소화하는 목적식을 설정해준다. 경사하강법으로 Y, V, W를 구해주고 constrained PMF의 경우, 빠르고 간단한 학습이 가능하다.</li>
+</ul>
+
+<p>&lt;5. Experimental Results&gt;
+&lt;5.1 Description of Netflix Data&gt;</p>
+<ul>
+  <li>
+    <p>넷플릭스 데이터에 대한 설명, validation data, test det 등. 오버피팅 방지를 위해 RMSE 척도 사용</p>
+  </li>
+  <li>
+    <p>추가적인 인사이트를 위해 이 논문에서는 더 까다로운 설정을 함. 50%가 넘는 사용자들이 10개 이하의 영화에 평점을 매김</p>
+  </li>
+</ul>
+
+<p>&lt;5.2 Details of Training&gt;</p>
+<ul>
+  <li>100,000 mini-batch로 설정 한 mini-batch 이후에 feature vector update</li>
+  <li>lr = 0.005, momentum = 0.9</li>
+</ul>
+
+<p>&lt;5.3 Results for PMF with Adaptive Priors&gt;</p>
+<ul>
+  <li>
+    <p>PMF with adaptive prior 의 성능 평가를 위해 10차원의 feature를 씀.</p>
+  </li>
+  <li>PMF1: 람다_u = 0.01, 람다_v = 0.001</li>
+  <li>PMF2: 람다_u = 0.001 람다_v = 0.0001</li>
+  <li>PMFA1: spherical covariance (adaptive)</li>
+  <li>PMFA2: diagonal covariance (adaptive)</li>
+  <li>10, 100번의 데이터 처리할때마다 업데이트</li>
+  <li>
+    <p>SVD, PMF2 초반에 괜찮다가 SVD 오버핏하는 경향, PMF1 underfit 하는 경향, 따라서 adaptive 한 경우가 실제상황에서 퍼포먼스가 좋다</p>
+  </li>
+  <li>use of adaptive prior 의 효과성, 때론 diagonal covariance가 greedy version에 효과적.</li>
+</ul>
+
+<p>&lt;5.4 Results for Constrained PMF&gt;</p>
+<ul>
+  <li>D=30, 람다=0.002, SVD-&gt; 심하게 overfit</li>
+  <li>
+    <p>constrained PMF가 unconstrained PMF보다 빠르게 수렴하고 적은 수의 관측에서 PMF 보다 효과적.  관측 수 많아질수록 두 PMF의 성능은 비슷해짐</p>
+  </li>
+  <li>
+    <p>또 하나의 흥미로운 측면은, 어떤 영화를 봤는지만 알고 실제 rating은 모르는 경우에서도  movie average 모델보다 좋은 성능 냄. 이런 상황에서도 효과적으로 도입할 수 있음을 암시함.</p>
+  </li>
+  <li>
+    <p>넷플릭스 데이터 셋 전체 쓴 거랑 효과가 비슷함. 람다가 0.001 일때도 비슷한 rmse 효과 보이는 걸로 봐서, 일반화된 특성을 가졌다고 볼 수 있음.</p>
+  </li>
+  <li>
+    <p>movies that were viewed but rating unknown 인 카테고리 추가하는 경우에서도 constrained PMF가 효과적임</p>
+  </li>
+  <li>선형적으로 PMF, PMF adaptive, constrained PMF 조합하면 0.8970 error rate 확보 가능. multiple RBM 이랑 합쳐지면 더욱 좋은 성능. 0.8861까지 발전</li>
+</ul>
+
+<p>&lt;6. Summary and Discussion&gt;</p>
+<ul>
+  <li>PMF 개념 제시 후</li>
+  <li>PMF with learnable prior</li>
+  <li>
+    <p>PMF with constrained situation</p>
+  </li>
+  <li>
+    <p>training 과정에서의 효과성은 전체 사후 분포를 추정하는 것이 아닌 점 추정으로 파리미터와 하이퍼 파라미터를 구하는 과정에서 입증.</p>
+  </li>
+  <li>fully Bayesian method 도입하면 더욱 예측 성능 높아짐.</li>
+</ul>
+:ET

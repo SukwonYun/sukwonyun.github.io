@@ -28,4 +28,16 @@ var store = [{
         "tags": [],
         "url": "https://sukwonyun.github.io/%EC%A7%80%EC%8B%9D%EA%B7%B8%EB%9E%98%ED%94%84/TransH/",
         "teaser": null
+      },{
+        "title": "[추천시스템] Probabilistic Matrix Factorization",
+        "excerpt":"Mnih, Andriy, and Russ R. Salakhutdinov. “Probabilistic matrix factorization.” Advances in neural information processing systems 20 (2007): 1257-1264. Abstract CF 단점: large datasets with few rating PMF -&gt; large, sparse에 강건함 적응형 모델, 용량 제어 user에 대한 제약 조건 있을때 PMF 1. Introduction Low-dimensional factor models -&gt; small number of...","categories": ["추천시스템"],
+        "tags": [],
+        "url": "https://sukwonyun.github.io/%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C/pmf/",
+        "teaser": null
+      },{
+        "title": "[추천시스템] Factorization Meets the Neighborhood: a Multifaceted Collaborative Filtering Model",
+        "excerpt":"Koren, Yehuda. “Factorization meets the neighborhood: a multifaceted collaborative filtering model.” Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining. 2008. In short, “Latent Factor model + Neighborhood model, Explicit + Implicit” About 이 논문은 추천시스템의 세부 영역인 Latent factor model 과 Neighborhood model을 합친...","categories": ["추천시스템"],
+        "tags": [],
+        "url": "https://sukwonyun.github.io/%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C/Netflix2/",
+        "teaser": null
       }]

@@ -2,6 +2,36 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
+      <loc>https://sukwonyun.github.io/%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C/Netflix2/</loc>
+      
+        <lastmod>2021-02-18T11:52:07+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+    </url>
+  
+    <url>
+      <loc>https://sukwonyun.github.io/%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C/pmf/</loc>
+      
+        <lastmod>2021-02-18T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+    </url>
+  
+    <url>
       <loc>https://sukwonyun.github.io/%EC%A7%80%EC%8B%9D%EA%B7%B8%EB%9E%98%ED%94%84/TransH/</loc>
       
         <lastmod>2021-02-10T22:03:43+09:00</lastmod>
