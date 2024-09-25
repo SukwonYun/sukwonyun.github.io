@@ -1,4 +1,11 @@
 papers:
+  - title: "Flex-MoE: Addressing Missing Modalities in Alzheimer’s Disease with Flexible Mixture-of-Experts"
+    authors: "Sukwon_Yun, Inyoung Choi, Jie Peng, Yangfan Wu, Jingxuan Bao, Qiyiwen Zhang, Jiayi Xin, Qi Long, Tianlong Chen "
+    venue: "NeurIPS 2024 <span style='color: red; font-weight: bold;'>(Spotlight)</span>"
+    paper_pdf: "https://sukwonyun.github.io/"
+    # code: "https://github.com/UNITES-Lab/Mew"
+    year: "2024"
+
   - title: "DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer's Disease Questions with Scientific Literature"
     authors: "Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, <b>Sukwon Yun</b>, Joseph Lee, Aaron Chacko, Bojian Hou, Duy Duong-Tran, Ying Ding, Huan Liu, Li Shen, Tianlong Chen"
     venue: "EMNLP 2024 Findings"

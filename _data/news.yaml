@@ -1,6 +1,9 @@
 
 news:
-  - content: '<b>Sep., 2024</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">EMNLP 2024 Findings</b>.'
+  - content: '<b>Sep., 2024</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">NeurIPS 2024</b> as <b style="color:#FF0000;">Spotlight Presentation</b> - Flexible Modality Learning.'
+    year: "2024"
+
+  - content: '<b>Sep., 2024</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">EMNLP 2024 Findings</b> - LLM + KG for AD.'
     year: "2024"
 
   - content: '<b>Aug., 2024</b>&nbsp;&nbsp;&nbsp;&nbsp; Our paper, “Subgraph Federated Learning for Local Generalization” won the <b style="color:#FF0000;">Best Paper Award</b> at <b style="color:#fa8072;">KDD 2024 workshop on Federated Learning for Data Mining and Graph Analytics</b>!'
@@ -9,7 +12,7 @@ news:
   - content: '<b>Jul., 2024</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">KDD 2024 workshop on Federated Learning for Data Mining and Graph Analytics</b>.'
     year: "2024"
 
-  - content: '<b>Jul., 2024</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">ECCV 2024</b>.'
+  - content: '<b>Jul., 2024</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">ECCV 2024</b> - Multiplexed Immunofluorescence Image Analysis.'
     year: "2024"
 
   - content: '<b>Apr., 2024</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">Briefings in Bioinformatics 2024</b>.'
