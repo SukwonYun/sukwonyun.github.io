@@ -1,6 +1,6 @@
 papers:
   - title: "Flex-MoE: Addressing Missing Modalities in Alzheimer’s Disease with Flexible Mixture-of-Experts"
-    authors: "Sukwon_Yun, Inyoung Choi, Jie Peng, Yangfan Wu, Jingxuan Bao, Qiyiwen Zhang, Jiayi Xin, Qi Long, Tianlong Chen "
+    authors: "<b>Sukwon_Yun</b>, Inyoung Choi, Jie Peng, Yangfan Wu, Jingxuan Bao, Qiyiwen Zhang, Jiayi Xin, Qi Long, Tianlong Chen "
     venue: "NeurIPS 2024 <span style='color: red; font-weight: bold;'>(Spotlight)</span>"
     paper_pdf: "https://sukwonyun.github.io/"
     # code: "https://github.com/UNITES-Lab/Mew"
