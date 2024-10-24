@@ -106,6 +106,44 @@ title: Home
   </ul>
 
   <div class="tab-content">
+    <div class="tab-pane" id="papers-preprint"></div>
+      {% assign papers_preprint = site.data.publications.papers | where: "year", "preprint" %}
+      {% for paper in papers_preprint %}
+        <div class="paper">
+          <p class="title"><b>{{ paper.title }}</b></p>
+          <p>{{ paper.authors }}</p>
+          <p><i>{{ paper.venue }}</i></p>
+           <div class="paper-buttons">
+            {% if paper.paper_pdf %}
+              <a class="button" href="{{ paper.paper_pdf }}" target="_blank">Paper</a>
+            {% endif %}
+
+            {% if paper.slides %}
+              <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
+            {% endif %}
+
+            {% if paper.poster %}
+              <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
+            {% endif %}
+
+            {% if paper.video %}
+              <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
+            {% endif %}
+
+            {% if paper.code %}
+              <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
+            {% endif %}
+
+            {% if paper.data %}
+              <a class="button" href="{{ paper.data }}" target="_blank">Data</a>
+            {% endif %}
+
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+
     <div class="tab-pane active" id="papers-2024">
       {% assign papers2024 = site.data.publications.papers | where: "year", "2024" %}
       {% for paper in papers2024 %}
@@ -224,9 +262,10 @@ title: Home
 <div class="docs-section" id="mentee">
   <h4>Mentee</h4>
   <p>
+  <b>Haiyun Lyu</b>  (UNC), Sep 2024 - <br>
   <b>Howard Huang</b>  (UCLA), Aug 2024 - <br>
   <b>Hongxuan Li</b>  (Duke University), May 2024 - <br>
-  <b>Youran Qu</b> (Peking University), May 2024 -
+  <!-- <b>Youran Qu</b> (Peking University), May 2024 - -->
   </p> 
 
 </div>

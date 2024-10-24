@@ -1,5 +1,8 @@
 
 news:
+  - content: '<b>Oct., 2024</b>&nbsp;&nbsp;&nbsp;&nbsp; Two preprints released; Check out <b>AgentPrune (Multi-agent LLM Communication Pruning)</b>, and <b>PortLLM (Training-free Personalized LLM)</b>.'
+    year: "2024"
+
   - content: '<b>Sep., 2024</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">NeurIPS 2024</b> as <b style="color:#FF0000;">Spotlight Presentation</b> - Flexible Modality Learning.'
     year: "2024"
 
