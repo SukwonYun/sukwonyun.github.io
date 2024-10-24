@@ -108,8 +108,8 @@ title: Home
 
   <div class="tab-content">
     <div class="tab-pane" id="papers-preprint"></div>
-      {% assign papers_preprint = site.data.publications.papers | where: "year", "preprint" %}
-      {% for paper in papers_preprint %}
+      {% assign paperspreprint = site.data.publications.papers | where: "year", "preprint" %}
+      {% for paper in paperspreprint %}
         <div class="paper">
           <p class="title"><b>{{ paper.title }}</b></p>
           <p>{{ paper.authors }}</p>

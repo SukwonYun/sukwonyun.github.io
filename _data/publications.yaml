@@ -1,14 +1,14 @@
 papers:
   - title: "PortLLM: Personalizing Evolving Large Language Models with Training-Free and Portable Model Patches"
     authors: "Rana Muhammad Shahroz Khan, Pingzhi Li*, <b>Sukwon Yun*</b>, Zhenyu Wang, Shahriar Nirjon, Chau-Wai Wong, Tianlong Chen"
-    venue: "Preprint"
+    venue: "arXiv 2024"
     paper_pdf: "https://arxiv.org/abs/2410.10870"
     # code: "https://github.com/UNITES-Lab/flex-moe"
     year: "preprint"
 
   - title: "Cut the Crap: An Economical Communication Pipeline for LLM-based Multi-Agent Systems"
     authors: "Guibin Zhang, Yanwei Yue, Zhixun Li, <b>Sukwon Yun</b>, Guancheng Wan, Kun Wang, Dawei Cheng, Jeffrey Xu Yu, Tianlong Chen"
-    venue: "Preprint"
+    venue: "arXiv 2024"
     paper_pdf: "https://arxiv.org/abs/2410.02506"
     code: "https://github.com/yanweiyue/AgentPrune"
     year: "preprint"
