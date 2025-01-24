@@ -58,12 +58,22 @@ title: Home
   <h4>News</h4>
 
   <ul class="tab-nav">
-    <li><div class="button active" data-ref="#news-2024">2024</div></li>
+    <li><div class="button active" data-ref="#news-2025">2025</div></li>
+    <li><div class="button" data-ref="#news-2024">2024</div></li>
     <li><div class="button" data-ref="#news-2023">2023-Past</div></li>
   </ul>
 
   <div class="tab-content">
-    <div class="tab-pane active" id="news-2024">
+    <div class="tab-pane active" id="news-2025">
+      {% assign news2025 = site.data.news.news | where: "year", "2025" %}
+      {% for news in news2025 %}
+        <div class="news">
+          <li>{{ news.content }}</li>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="tab-pane" id="news-2024">
       {% assign news2024 = site.data.news.news | where: "year", "2024" %}
       {% for news in news2024 %}
         <div class="news">
@@ -101,7 +111,8 @@ title: Home
 
   <ul class="tab-nav">
     <li><div class="button" data-ref="#papers-preprint">Preprint</div></li>
-    <li><div class="button active" data-ref="#papers-2024">2024</div></li>
+    <li><div class="button active" data-ref="#papers-2025">2025</div></li>
+    <li><div class="button" data-ref="#papers-2024">2024</div></li>
     <li><div class="button" data-ref="#papers-2023">2023-Past</div></li>
     <li><div class="button" data-ref="#papers-all">All</div></li>
   </ul>
@@ -127,8 +138,28 @@ title: Home
       {% endfor %}
     </div>
 
+    <!-- Tab: 2025 -->
+    <div class="tab-pane active" id="papers-2025">
+      {% assign papers2025 = site.data.publications.papers | where: "year", "2025" %}
+      {% for paper in papers2025 %}
+        <div class="paper">
+          <p class="title"><b>{{ paper.title }}</b></p>
+          <p>{{ paper.authors }}</p>
+          <p><i>{{ paper.venue }}</i></p>
+          <div class="paper-buttons">
+            {% if paper.paper_pdf %}
+              <a class="button" href="{{ paper.paper_pdf }}" target="_blank">Paper</a>
+            {% endif %}
+            {% if paper.code %}
+              <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
     <!-- Tab: 2024 -->
-    <div class="tab-pane active" id="papers-2024">
+    <div class="tab-pane" id="papers-2024">
       {% assign papers2024 = site.data.publications.papers | where: "year", "2024" %}
       {% for paper in papers2024 %}
         <div class="paper">

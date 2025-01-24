@@ -1,5 +1,14 @@
 
 news:
+  - content: '<b>Jan., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; I will be joining <a href="https://www.gene.com/" target="_blank">Genetech</a> as a 2025 Summer Intern working with <a href="https://www.roche.com/about/leadership/aviv-regev" target="_blank">Prof. Aviv Regev</a> and <a href="https://scholar.google.com/citations?user=Ic2ZEB0AAAAJ&hl=en" target="_blank">Dr. Russell Littman</a>. Looking forward to it!'
+    year: "2025"
+
+  - content: '<b>Jan., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; Three papers got accepted at <b style="color:#fa8072;">ICLR 2025</b> - Multi-agent Communication Pruning + Training-free Personalized LLM + Graph Federated Learning.'
+    year: "2025"
+
+  - content: '<b>Jan., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">AAAI 2025 GenAI4Health Workshop</b> - MoE as a Missing Modality Retriever.'
+    year: "2025"
+
   - content: '<b>Oct., 2024</b>&nbsp;&nbsp;&nbsp;&nbsp; Two preprints released; Check out <a href="https://arxiv.org/abs/2410.02506" target="_blank">AgentPrune</a> (Multi-agent Communication Pruning), and <a href="https://arxiv.org/abs/2410.10870" target="_blank">PortLLM</a> (Training-free Personalized LLM).'
     year: "2024"
 
