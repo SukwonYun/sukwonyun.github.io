@@ -1,5 +1,8 @@
 
 news:
+  - content: '<b>Mar., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; Our paper, “Generate, Then Retrieve: Addressing Missing Modalities in Multimodal Learning via Generative AI and MoE” won the <b style="color:#FF0000;">Best Paper Award</b> at <b style="color:#fa8072;">AAAI 2025 GenAI4Health</b>!'
+    year: "2025"
+
   - content: '<b>Feb., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">CPAL 2025</b> - MoE for Multi-modal Multi-task Learning.'
     year: "2025"
 
