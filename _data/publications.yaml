@@ -1,4 +1,25 @@
 papers:
+  - title: "Symbolic Mixture-of-Experts: Adaptive Skill-based Routing for Heterogeneous Reasoning"
+    authors: "Justin Chih-Yao Chen*, <b>Sukwon Yun*</b>, Elias Stengel-Eskin*, Tianlong Chen, Mohit Bansal"
+    venue: "preprint"
+    paper_pdf: "https://arxiv.org/abs/2503.05641"
+    code: "https://github.com/dinobby/Symbolic-MoE"
+    year: "preprint"
+
+  - title: "scMoE: single-cell Multi-Modal Multi-Task Learning via Sparse Mixture-of-Experts"
+    authors: "<b>Sukwon Yun*</b>, Jie Peng*, Namkyeong Lee, Yanyong Zhang, Chanyoung Park, Zunpeng Liu, Tianlong Chen"
+    venue: "preprint"
+    paper_pdf: "https://www.biorxiv.org/content/10.1101/2024.11.12.623336v1"
+    code: "https: //github.com/UNITES-Lab/scMoE"
+    year: "preprint"
+
+  - title: "GRNFormer: A Biologically-Guided Framework for Integrating Gene Regulatory Networks into RNA Foundation Models"
+    authors: "Mufan Qiu, Xinyu Hu, Fengwei Zhan, <b>Sukwon Yun</b>, Jie Peng, Ruichen Zhang, Bhavya Kailkhura, Jiekun Yang, Tianlong Chen"
+    venue: "preprint"
+    paper_pdf: "https://arxiv.org/abs/2503.01682"
+    # code: "https://github.com/yanweiyue/AgentPrune"
+    year: "preprint"
+
   - title: "Sparse MoE as a New Treatment: Addressing Forgetting, Fitting, Learning Issues in Multi-Modal Multi-Task Learning"
     authors: "Jie Peng, <b>Sukwon Yun</b>, Kaixiong Zhou, Ruida Zhou, Thomas Hartvigsen, Yanyong Zhang, Zhangyang Wang, Tianlong Chen"
     venue: "CPAL 2025"

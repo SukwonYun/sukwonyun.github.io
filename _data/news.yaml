@@ -1,5 +1,11 @@
 
 news:
+  - content: '<b>Mar., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; New preprint on multi-agent LLM is released; Check out <a href="https://arxiv.org/abs/2503.05641" target="_blank">Symbolic-MoE</a>.'
+    year: "2025"
+
+  - content: '<b>Mar., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; New preprint on RNA FMs + GRN is released; Check out <a href="https://arxiv.org/abs/2503.01682" target="_blank">GRNFormer</a>.'
+    year: "2025"
+
   - content: '<b>Mar., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; Our paper, “Generate, Then Retrieve: Addressing Missing Modalities in Multimodal Learning via Generative AI and MoE” won the <b style="color:#FF0000;">Best Paper Award</b> at <b style="color:#fa8072;">AAAI 2025 GenAI4Health</b>!'
     year: "2025"
 
