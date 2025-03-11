@@ -1,6 +1,6 @@
 
 news:
-  - content: '<b>Mar., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; New preprint on multi-agent LLM is released; Check out <a href="https://arxiv.org/abs/2503.05641" target="_blank">Symbolic-MoE</a>.'
+  - content: '<b>Mar., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; New preprint on multi-agent LLMs + MoE framework is released; Check out <a href="https://arxiv.org/abs/2503.05641" target="_blank">Symbolic-MoE</a>.'
     year: "2025"
 
   - content: '<b>Mar., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; New preprint on RNA FMs + GRN is released; Check out <a href="https://arxiv.org/abs/2503.01682" target="_blank">GRNFormer</a>.'
