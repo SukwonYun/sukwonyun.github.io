@@ -1,13 +1,13 @@
 papers:
   - title: "I^2 MoE: Interpretable Multimodal Interaction-aware Mixture-of-Experts"
-    authors: "Jiayi Xin, Sukwon Yun, Jie Peng, Inyoung Choi, Jenna L. Ballard, Tianlong Chen, Qi Long"
+    authors: "Jiayi Xin, <b>Sukwon Yun</b>, Jie Peng, Inyoung Choi, Jenna L. Ballard, Tianlong Chen, Qi Long"
     venue: "ICML 2025"
     # paper_pdf: "https://arxiv.org/abs/2503.05641"
     # code: "https://github.com/dinobby/Symbolic-MoE"
     year: "2025"
 
   - title: "Modalities Contribute Unequally: Enhancing Medical Multi-modal Learning through Adaptive Modality Token Re-balancing"
-    authors: "Jie Peng, Jenna L. Ballard, Mohan Zhang, Sukwon Yun, Jiayi Xin, Qi Long, Yanyong Zhang, Tianlong Chen"
+    authors: "Jie Peng, Jenna L. Ballard, Mohan Zhang, <b>Sukwon Yun</b>, Jiayi Xin, Qi Long, Yanyong Zhang, Tianlong Chen"
     venue: "ICML 2025"
     # paper_pdf: "https://arxiv.org/abs/2503.05641"
     # code: "https://github.com/dinobby/Symbolic-MoE"
