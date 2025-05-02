@@ -1,5 +1,8 @@
 
 news:
+  - content: '<b>May., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; Two papers got accepted at <b style="color:#fa8072;">ICML 2025</b> - Unequal Multi-modal Learning + Interpretable MoE.'
+    year: "2025"
+
   - content: '<b>Mar., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; New preprint on multi-agent LLMs + MoE framework is released; Check out <a href="https://arxiv.org/abs/2503.05641" target="_blank">Symbolic-MoE</a>.'
     year: "2025"
 

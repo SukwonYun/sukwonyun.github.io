@@ -1,10 +1,17 @@
 papers:
-  - title: "Symbolic Mixture-of-Experts: Adaptive Skill-based Routing for Heterogeneous Reasoning"
-    authors: "Justin Chih-Yao Chen*, <b>Sukwon Yun*</b>, Elias Stengel-Eskin*, Tianlong Chen, Mohit Bansal"
-    venue: "preprint"
-    paper_pdf: "https://arxiv.org/abs/2503.05641"
-    code: "https://github.com/dinobby/Symbolic-MoE"
-    year: "preprint"
+  - title: "I^2 MoE: Interpretable Multimodal Interaction-aware Mixture-of-Experts"
+    authors: "Jiayi Xin, Sukwon Yun, Jie Peng, Inyoung Choi, Jenna L. Ballard, Tianlong Chen, Qi Long"
+    venue: "ICML 2025"
+    # paper_pdf: "https://arxiv.org/abs/2503.05641"
+    # code: "https://github.com/dinobby/Symbolic-MoE"
+    year: "2025"
+
+  - title: "Modalities Contribute Unequally: Enhancing Medical Multi-modal Learning through Adaptive Modality Token Re-balancing"
+    authors: "Jie Peng, Jenna L. Ballard, Mohan Zhang, Sukwon Yun, Jiayi Xin, Qi Long, Yanyong Zhang, Tianlong Chen"
+    venue: "ICML 2025"
+    # paper_pdf: "https://arxiv.org/abs/2503.05641"
+    # code: "https://github.com/dinobby/Symbolic-MoE"
+    year: "2025"
 
   - title: "GRNFormer: A Biologically-Guided Framework for Integrating Gene Regulatory Networks into RNA Foundation Models"
     authors: "Mufan Qiu, Xinyu Hu, Fengwei Zhan, <b>Sukwon Yun</b>, Jie Peng, Ruichen Zhang, Bhavya Kailkhura, Jiekun Yang, Tianlong Chen"
