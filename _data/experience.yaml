@@ -1,4 +1,10 @@
 experiences:  
+- place: "Genentech"
+  time: "May. 2025 - "
+  title: "Research Intern"
+  subtitle: "Mentors: <a href='https://www.roche.com/about/leadership/aviv-regev' style='text-decoration: none;'>Prof. Aviv Regev</a>, <a href='https://scholar.google.com/citations?user=Ic2ZEB0AAAAJ&hl=en' style='text-decoration: none;'>Dr. Russell Littman</a>"
+  category: "work"
+
 - place: "UNC Chapel Hill"
   time: "Aug. 2024 - "
   title: "Ph.D. Student in Computer Science"
