@@ -1,4 +1,33 @@
 papers:
+
+  - title: "Oldie but Goodie: Re-illuminating Label Propagation on Graphs with Partially Observed Features"
+    authors: "<b>Sukwon Yun</b>, Xin Liu, Yunhak Oh, Junseok Lee, Tianlong Chen, Tsuyoshi Murata, Chanyoung Park"
+    venue: "KDD 2025"
+    # paper_pdf: "https://arxiv.org/abs/2503.01682"
+    # code: "https://github.com/yanweiyue/AgentPrune"
+    year: "2025"
+
+  - title: "Spatial Coordinates as a Cell Language: A Multi-Sentence Framework for Imaging Mass Cytometry Analysis"
+    authors: "Chi-Jane Chen*, Yuhang Chen*, <b>Sukwon Yun*</b>, Natalie Stanley, Tianlong Chen"
+    venue: "ACL 2025 Findings"
+    # paper_pdf: "https://arxiv.org/abs/2503.01682"
+    # code: "https://github.com/yanweiyue/AgentPrune"
+    year: "2025"
+
+  - title: "GRNFormer: A Biologically-Guided Framework for Integrating Gene Regulatory Networks into RNA Foundation Models"
+    authors: "Mufan Qiu, Xinyu Hu, Fengwei Zhan, <b>Sukwon Yun</b>, Jie Peng, Ruichen Zhang, Bhavya Kailkhura, Jiekun Yang, Tianlong Chen"
+    venue: "ACL 2025 Findings"
+    paper_pdf: "https://arxiv.org/abs/2503.01682"
+    # code: "https://github.com/yanweiyue/AgentPrune"
+    year: "2025"
+
+  - title: "Agents Under Siege: Breaking Pragmatic Multi-Agent LLM Systems with Optimized Prompt Attacks"
+    authors: "Rana Shahroz, Zhen Tan, <b>Sukwon Yun</b>, Charles Fleming, Tianlong Chen"
+    venue: "ACL 2025"
+    paper_pdf: "https://arxiv.org/abs/2504.00218"
+    # code: "https://github.com/yanweiyue/AgentPrune"
+    year: "2025"
+
   - title: "I^2 MoE: Interpretable Multimodal Interaction-aware Mixture-of-Experts"
     authors: "Jiayi Xin, <b>Sukwon Yun</b>, Jie Peng, Inyoung Choi, Jenna L. Ballard, Tianlong Chen, Qi Long"
     venue: "ICML 2025"
@@ -12,13 +41,6 @@ papers:
     # paper_pdf: "https://arxiv.org/abs/2503.05641"
     # code: "https://github.com/dinobby/Symbolic-MoE"
     year: "2025"
-
-  - title: "GRNFormer: A Biologically-Guided Framework for Integrating Gene Regulatory Networks into RNA Foundation Models"
-    authors: "Mufan Qiu, Xinyu Hu, Fengwei Zhan, <b>Sukwon Yun</b>, Jie Peng, Ruichen Zhang, Bhavya Kailkhura, Jiekun Yang, Tianlong Chen"
-    venue: "preprint"
-    paper_pdf: "https://arxiv.org/abs/2503.01682"
-    # code: "https://github.com/yanweiyue/AgentPrune"
-    year: "preprint"
 
   - title: "scMoE: single-cell Multi-Modal Multi-Task Learning via Sparse Mixture-of-Experts"
     authors: "<b>Sukwon Yun*</b>, Jie Peng*, Namkyeong Lee, Yanyong Zhang, Chanyoung Park, Zunpeng Liu, Tianlong Chen"
