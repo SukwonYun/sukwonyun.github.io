@@ -1,9 +1,15 @@
 
 news:
+  - content: '<b>Jun., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">Cell</b> - Single-cell epigenomics/transcriptomics + regulatory rewiring in AD across brain regions' 
+    year: "2025"
+
+  - content: '<b>Jun., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">ICML MAS 2025</b> - Graph-based Multi-Agent LLM collaboration (first)' 
+    year: "2025"
+
   - content: '<b>May., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; Three papers got accepted at <b style="color:#fa8072;">ACL 2025 (1 Main and 2 Findings)</b> - Multi-Agent Attack + Spatial Coordinate as a Cell Language (co-first) + RNA FMs with GRN' 
     year: "2025"
 
-  - content: '<b>May., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">KDD 2025</b> - Graph Missing Feature. Work done during my visit to Tokyo Tech!' 
+  - content: '<b>May., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">KDD 2025</b> - Graph Missing Feature (first). Work done during my visit to Tokyo Tech!' 
     year: "2025"
 
   - content: '<b>May., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; Excited to begin my summer internship at <b style="color:#fa8072;">Genentech</b>.'
