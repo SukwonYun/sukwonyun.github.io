@@ -1,7 +1,7 @@
 papers:
 
   - title: "Single-cell epigenomics and transcriptomics reveal regulatory rewiring in Alzheimer's disease across brain regions"
-    authors: "Zunpeng Liu*, Shanshan Zhang*, Benjamin T. James*, Kyriaki Galani, Riley J. Mangan, Stuart Benjamin Fass, Chuqian Liang, Manoj M Wagle, Carles A. Boix, Yosuke Tanigawa,<b>Sukwon Yun</b>, Yena Sung, Xushen Xiong, Na Sun, Lei Hou, Martin Wohlwend, Mufan Qiu, Xikun Han, Lei Xiong, Efthalia Preka, Lei Huang, William F. Li, Li-Lun Ho, Amy Grayson, Julio Mantero, Alexey Kozlenkov, Hansruedi Mathys, Tianlong Chen, Stella Dracheva, David A. Bennett, Li-Huei Tsai, Manolis Kellis"
+    authors: "Zunpeng Liu*, Shanshan Zhang*, Benjamin T. James*, Kyriaki Galani, Riley J. Mangan, Stuart Benjamin Fass, Chuqian Liang, Manoj M Wagle, Carles A. Boix, Yosuke Tanigawa, <b>Sukwon Yun</b>, Yena Sung, Xushen Xiong, Na Sun, Lei Hou, Martin Wohlwend, Mufan Qiu, Xikun Han, Lei Xiong, Efthalia Preka, Lei Huang, William F. Li, Li-Lun Ho, Amy Grayson, Julio Mantero, Alexey Kozlenkov, Hansruedi Mathys, Tianlong Chen, Stella Dracheva, David A. Bennett, Li-Huei Tsai, Manolis Kellis"
     venue: "Cell"
     # paper_pdf: "https://arxiv.org/abs/2503.01682"
     # code: "https://github.com/yanweiyue/AgentPrune"
