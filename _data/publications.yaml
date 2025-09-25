@@ -1,7 +1,28 @@
 papers:
 
+  - title: "Sparse Mixture-of-Experts for Multi-Channel Imaging: Are All Channel Interactions Required?"
+    authors: "<b>Sukwon Yun</b>, Heming Yao, Burkhard Hoeckendorf, David Richmond, Aviv Regev, Russell Littman"
+    venue: "NeurIPS 2025 AI for Science"
+    # paper_pdf: "https://arxiv.org/abs/2503.01682"
+    # code: "https://github.com/yanweiyue/AgentPrune"
+    year: "2025"
+
+  - title: "BetaConform: Efficient MAP Estimation of LLM Ensemble Judgment Performance with Prior Transfer"
+    authors: "Huaizhi Qu, Inyoung Choi, Zhen Tan, Song Wang, <b>Sukwon Yun</b>, Qi Long, Faizan Siddiqui, Kwonjoon Lee, Tianlong Chen"
+    venue: "NeurIPS 2025"
+    # paper_pdf: "https://arxiv.org/abs/2503.01682"
+    # code: "https://github.com/yanweiyue/AgentPrune"
+    year: "2025"
+
+  - title: "Training Robust Graph Neural Networks by Modeling Noise Dependencies"
+    authors: "Yeonjun In, Kanghoon Yoon, <b>Sukwon Yun</b>, Kibum Kim, Sungchul Kim, Chanyoung Park"
+    venue: "NeurIPS 2025"
+    # paper_pdf: "https://arxiv.org/abs/2503.01682"
+    # code: "https://github.com/yanweiyue/AgentPrune"
+    year: "2025"
+
   - title: "Single-cell epigenomics and transcriptomics reveal regulatory rewiring in Alzheimer's disease across brain regions"
-    authors: "Zunpeng Liu*, Shanshan Zhang*, Benjamin T. James*, Kyriaki Galani, Riley J. Mangan, Stuart Benjamin Fass, Chuqian Liang, Manoj M Wagle, Carles A. Boix, Yosuke Tanigawa, <b>Sukwon Yun</b>, Yena Sung, Xushen Xiong, Na Sun, Lei Hou, Martin Wohlwend, Mufan Qiu, Xikun Han, Lei Xiong, Efthalia Preka, Lei Huang, William F. Li, Li-Lun Ho, Amy Grayson, Julio Mantero, Alexey Kozlenkov, Hansruedi Mathys, Tianlong Chen, Stella Dracheva, David A. Bennett, Li-Huei Tsai, Manolis Kellis"
+    authors: "Zunpeng Liu*, Shanshan Zhang*, Benjamin T. James, Kyriaki Galani, Riley J. Mangan, Stuart Benjamin Fass, Chuqian Liang, Manoj M Wagle, Carles A. Boix, Yosuke Tanigawa, <b>Sukwon Yun</b>, Yena Sung, Xushen Xiong, Na Sun, Lei Hou, Martin Wohlwend, Mufan Qiu, Xikun Han, Lei Xiong, Efthalia Preka, Lei Huang, William F. Li, Li-Lun Ho, Amy Grayson, Julio Mantero, Alexey Kozlenkov, Hansruedi Mathys, Tianlong Chen, Stella Dracheva, David A. Bennett, Li-Huei Tsai, Manolis Kellis"
     venue: "Cell"
     # paper_pdf: "https://arxiv.org/abs/2503.01682"
     # code: "https://github.com/yanweiyue/AgentPrune"
@@ -9,7 +30,7 @@ papers:
 
   - title: "Graph-of-Agents: A Graph-Based Framework for Multi-Agent LLM Collaboration"
     authors: "<b>Sukwon Yun</b>, Jie Peng, Pingzhi Li, Wendong Fan, Jie Chen, James Zou, Guohao Li, Tianlong Chen"
-    venue: "ICML MAS 2025"
+    venue: "ICML 2025 MAS"
     # paper_pdf: "https://arxiv.org/abs/2503.01682"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
