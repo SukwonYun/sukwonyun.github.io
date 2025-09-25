@@ -1,6 +1,6 @@
 
 news:
-  - content: '<b>Sep., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; A papers got accepted at <b style="color:#fa8072;">NeurIPS 2025 AI for Science</b> - MoE for ViT. Work done during my internship at <b>Regev Lab, Genentech</b>!' 
+  - content: '<b>Sep., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">NeurIPS 2025 AI for Science</b> - MoE for ViT. Work done during my internship at <a href="https://www.gene.com/" target="_blank">Regev Lab</b>!' 
     year: "2025"
 
   - content: '<b>Sep., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; Two papers got accepted at <b style="color:#fa8072;">NeurIPS 2025</b> - MAP for LLM ensemble judgment + Feature-Noise Robust GNN' 
@@ -15,10 +15,10 @@ news:
   - content: '<b>May., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; Three papers got accepted at <b style="color:#fa8072;">ACL 2025 (1 Main and 2 Findings)</b> - Multi-Agent Attack + Spatial Coordinate as a Cell Language + RNA FMs with GRN' 
     year: "2025"
 
-  - content: '<b>May., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">KDD 2025</b> - Graph Missing Feature. Work done during my visit to <b>Tokyo Tech</b>!' 
+  - content: '<b>May., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; A paper got accepted at <b style="color:#fa8072;">KDD 2025</b> - Graph Missing Feature. Work done during my visit to <a href="https://www.titech.ac.jp/english" target="_blank">Tokyo Tech</a>!' 
     year: "2025"
 
-  - content: '<b>May., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; Excited to begin my summer internship at <b style="color:#fa8072;">Genentech</b>.'
+  - content: '<b>May., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; Excited to begin my summer internship at <a href="https://www.gene.com/" target="_blank">Genentech</a>.'
     year: "2025"
 
   - content: '<b>May., 2025</b>&nbsp;&nbsp;&nbsp;&nbsp; Two papers got accepted at <b style="color:#fa8072;">ICML 2025</b> - Unequal Multi-modal Learning + Interpretable MoE.'
