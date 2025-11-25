@@ -6,27 +6,31 @@ papers:
     # paper_pdf: "https://arxiv.org/abs/2503.01682"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "yes"
 
   - title: "BetaConform: Efficient MAP Estimation of LLM Ensemble Judgment Performance with Prior Transfer"
     authors: "Huaizhi Qu, Inyoung Choi, Zhen Tan, Song Wang, <b>Sukwon Yun</b>, Qi Long, Faizan Siddiqui, Kwonjoon Lee, Tianlong Chen"
     venue: "NeurIPS 2025"
-    # paper_pdf: "https://arxiv.org/abs/2503.01682"
+    paper_pdf: "https://arxiv.org/abs/2504.12589"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "no"
 
   - title: "Training Robust Graph Neural Networks by Modeling Noise Dependencies"
     authors: "Yeonjun In, Kanghoon Yoon, <b>Sukwon Yun</b>, Kibum Kim, Sungchul Kim, Chanyoung Park"
     venue: "NeurIPS 2025"
-    # paper_pdf: "https://arxiv.org/abs/2503.01682"
+    paper_pdf: "https://arxiv.org/abs/2502.19670"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "no"
 
   - title: "Single-cell epigenomics and transcriptomics reveal regulatory rewiring in Alzheimer's disease across brain regions"
     authors: "Zunpeng Liu*, Shanshan Zhang*, Benjamin T. James, Kyriaki Galani, Riley J. Mangan, Stuart Benjamin Fass, Chuqian Liang, Manoj M Wagle, Carles A. Boix, Yosuke Tanigawa, <b>Sukwon Yun</b>, Yena Sung, Xushen Xiong, Na Sun, Lei Hou, Martin Wohlwend, Mufan Qiu, Xikun Han, Lei Xiong, Efthalia Preka, Lei Huang, William F. Li, Li-Lun Ho, Amy Grayson, Julio Mantero, Alexey Kozlenkov, Hansruedi Mathys, Tianlong Chen, Stella Dracheva, David A. Bennett, Li-Huei Tsai, Manolis Kellis"
     venue: "Cell"
-    # paper_pdf: "https://arxiv.org/abs/2503.01682"
+    paper_pdf: "https://www.cell.com/cell/fulltext/S0092-8674(25)00733-0"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "no"
 
   - title: "Graph-of-Agents: A Graph-Based Framework for Multi-Agent LLM Collaboration"
     authors: "<b>Sukwon Yun</b>, Jie Peng, Pingzhi Li, Wendong Fan, Jie Chen, James Zou, Guohao Li, Tianlong Chen"
@@ -34,6 +38,7 @@ papers:
     # paper_pdf: "https://arxiv.org/abs/2503.01682"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "yes"
 
   - title: "Oldie but Goodie: Re-illuminating Label Propagation on Graphs with Partially Observed Features"
     authors: "<b>Sukwon Yun</b>, Xin Liu, Yunhak Oh, Junseok Lee, Tianlong Chen, Tsuyoshi Murata, Chanyoung Park"
@@ -41,13 +46,15 @@ papers:
     # paper_pdf: "https://arxiv.org/abs/2503.01682"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "no"
 
   - title: "Spatial Coordinates as a Cell Language: A Multi-Sentence Framework for Imaging Mass Cytometry Analysis"
     authors: "Chi-Jane Chen*, Yuhang Chen*, <b>Sukwon Yun*</b>, Natalie Stanley, Tianlong Chen"
     venue: "ACL 2025 Findings"
-    # paper_pdf: "https://arxiv.org/abs/2503.01682"
+    paper_pdf: "https://arxiv.org/abs/2506.01918"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "no"
 
   - title: "GRNFormer: A Biologically-Guided Framework for Integrating Gene Regulatory Networks into RNA Foundation Models"
     authors: "Mufan Qiu, Xinyu Hu, Fengwei Zhan, <b>Sukwon Yun</b>, Jie Peng, Ruichen Zhang, Bhavya Kailkhura, Jiekun Yang, Tianlong Chen"
@@ -55,6 +62,7 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2503.01682"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "no"
 
   - title: "Agents Under Siege: Breaking Pragmatic Multi-Agent LLM Systems with Optimized Prompt Attacks"
     authors: "Rana Shahroz, Zhen Tan, <b>Sukwon Yun</b>, Charles Fleming, Tianlong Chen"
@@ -62,13 +70,15 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2504.00218"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "no"
 
   - title: "I^2 MoE: Interpretable Multimodal Interaction-aware Mixture-of-Experts"
     authors: "Jiayi Xin, <b>Sukwon Yun</b>, Jie Peng, Inyoung Choi, Jenna L. Ballard, Tianlong Chen, Qi Long"
     venue: "ICML 2025"
-    # paper_pdf: "https://arxiv.org/abs/2503.05641"
+    paper_pdf: "https://arxiv.org/abs/2505.19190v1"
     # code: "https://github.com/dinobby/Symbolic-MoE"
     year: "2025"
+    selected: "no"
 
   - title: "Modalities Contribute Unequally: Enhancing Medical Multi-modal Learning through Adaptive Modality Token Re-balancing"
     authors: "Jie Peng, Jenna L. Ballard, Mohan Zhang, <b>Sukwon Yun</b>, Jiayi Xin, Qi Long, Yanyong Zhang, Tianlong Chen"
@@ -76,6 +86,7 @@ papers:
     # paper_pdf: "https://arxiv.org/abs/2503.05641"
     # code: "https://github.com/dinobby/Symbolic-MoE"
     year: "2025"
+    selected: "no"
 
   - title: "scMoE: single-cell Multi-Modal Multi-Task Learning via Sparse Mixture-of-Experts"
     authors: "<b>Sukwon Yun*</b>, Jie Peng*, Namkyeong Lee, Yanyong Zhang, Chanyoung Park, Zunpeng Liu, Tianlong Chen"
@@ -83,6 +94,7 @@ papers:
     paper_pdf: "https://www.biorxiv.org/content/10.1101/2024.11.12.623336v1"
     code: "https: //github.com/UNITES-Lab/scMoE"
     year: "preprint"
+    selected: "no"
 
   - title: "Sparse MoE as a New Treatment: Addressing Forgetting, Fitting, Learning Issues in Multi-Modal Multi-Task Learning"
     authors: "Jie Peng, <b>Sukwon Yun</b>, Kaixiong Zhou, Ruida Zhou, Thomas Hartvigsen, Yanyong Zhang, Zhangyang Wang, Tianlong Chen"
@@ -90,6 +102,7 @@ papers:
     # paper_pdf: "https://arxiv.org/abs/2410.02506"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "no"
 
   - title: "Cut the Crap: An Economical Communication Pipeline for LLM-based Multi-Agent Systems"
     authors: "Guibin Zhang, Yanwei Yue, Zhixun Li, <b>Sukwon Yun</b>, Guancheng Wan, Kun Wang, Dawei Cheng, Jeffrey Xu Yu, Tianlong Chen"
@@ -97,6 +110,7 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2410.02506"
     code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "yes"
 
   - title: "PortLLM: Personalizing Evolving Large Language Models with Training-Free and Portable Model Patches"
     authors: "Rana Muhammad Shahroz Khan, Pingzhi Li*, <b>Sukwon Yun*</b>, Zhenyu Wang, Shahriar Nirjon, Chau-Wai Wong, Tianlong Chen"
@@ -104,6 +118,7 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2410.10870"
     # code: "https://github.com/UNITES-Lab/flex-moe"
     year: "2025"
+    selected: "no"
 
   - title: "Subgraph Federated Learning for Local Generalization"
     authors: "Sungwon Kim, Yoonho Lee, Yunhak Oh, Namkyeong Lee, <b>Sukwon Yun</b>, Junseok Lee, Sein Kim, Carl Yang, Chanyoung Park "
@@ -111,6 +126,7 @@ papers:
     paper_pdf: "https://openreview.net/forum?id=cH65nS5sOz"
     # code: "https://github.com/yanweiyue/AgentPrune"
     year: "2025"
+    selected: "no"
 
   - title: "Generate, Then Retrieve: Addressing Missing Modalities in Multimodal Learning via Generative AI and MoE"
     authors: "<b>Sukwon Yun*</b>, Jiayi Xin*, Inyoung Choi, Jie Peng, Ying Ding, Qi Long, Tianlong Chen"
@@ -118,6 +134,7 @@ papers:
     # paper_pdf: "https://arxiv.org/abs/2410.10870"
     # code: "https://github.com/UNITES-Lab/flex-moe"
     year: "2025"
+    selected: "yes"
 
   - title: "Flex-MoE: Modeling Arbitrary Modality Combination via the Flexible Mixture-of-Experts"
     authors: "<b>Sukwon Yun</b>, Inyoung Choi, Jie Peng, Yangfan Wu, Jingxuan Bao, Qiyiwen Zhang, Jiayi Xin, Qi Long, Tianlong Chen"
@@ -125,6 +142,7 @@ papers:
     paper_pdf: "https://www.arxiv.org/abs/2410.08245"
     code: "https://github.com/UNITES-Lab/flex-moe"
     year: "2024"
+    selected: "yes"
 
   - title: "DALK: Dynamic Co-Augmentation of LLMs and KG to answer Alzheimer's Disease Questions with Scientific Literature"
     authors: "Dawei Li, Shu Yang, Zhen Tan, Jae Young Baik, <b>Sukwon Yun</b>, Joseph Lee, Aaron Chacko, Bojian Hou, Duy Duong-Tran, Ying Ding, Huan Liu, Li Shen, Tianlong Chen"
@@ -132,6 +150,7 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2405.04819"
     code: "https://github.com/David-Li0406/DALK"
     year: "2024"
+    selected: "no"
 
   - title: "Subgraph Federated Learning for Local Generalization"
     authors: "Sungwon Kim, Yoonho Lee, Yunhak Oh, Namkyeong Lee, <b>Sukwon Yun</b>, Junseok Lee, Sein Kim, Carl Yang, Chanyoung Park"
@@ -139,6 +158,7 @@ papers:
     paper_pdf: "https://sukwonyun.github.io/"
     # code: "https://github.com/UNITES-Lab/Mew"
     year: "2024"
+    selected: "no"
 
   - title: "Mew: Multiplexed Immunofluorescence Image Analysis through an Efficient Multiplex Network"
     authors: "<b>Sukwon Yun</b>, Jie Peng, Alexandro Trevino, Chanyoung Park, Tianlong Chen"
@@ -146,6 +166,7 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2407.17857"
     code: "https://github.com/UNITES-Lab/Mew"
     year: "2024"
+    selected: "yes"
 
   - title: "Single-cell RNA Sequencing Data Imputation Using Bi-level Feature Propagation"
     authors: "Junseok Lee*, <b>Sukwon Yun*</b>, Yeongmin Kim, Tianlong Chen, Manolis Kellis, Chanyoung Park"
@@ -153,12 +174,14 @@ papers:
     paper_pdf: "https://academic.oup.com/bib/article/25/3/bbae209/7665119"
     code: "https://github.com/Junseok0207/scBFP"
     year: "2024"
+    selected: "no"
 
   - title: "Noise Robust Graph Learning under Feature-Dependent Graph-Noise"
     authors: "Yeonjun In, Kanghoon Yoon, <b>Sukwon Yun</b>, Kibum Kim, Sungchul Kim, Chanyoung Park"
     venue: "WWW 2024 Workshop on Data-centric Artificial Intelligence (DCAI) <span style='color: red; font-weight: bold;'>(Oral)</span>"
     paper_pdf: "https://sukwonyun.github.io/"
     year: "2024"
+    selected: "no"
 
   - title: "DEGNN: Dual Experts Graph Neural Network Handling Both Edge and Node Feature Noise"
     authors: "Tai Hasegawa, <b>Sukwon Yun</b>, Xin Liu, Yin Jun Phua, Tsuyoshi Murata"
@@ -166,6 +189,7 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2404.09207"
     code: "https://github.com/TaiHasegawa/DEGNN"
     year: "2024"
+    selected: "no"
 
   - title: "MUSE: Music Recommender System with Shuffle Play Recommendation Enhancement"
     authors: "Yunhak Oh*, <b>Sukwon Yun*</b>, Dongmin Hyun, Sein Kim, Chanyoung Park"
@@ -173,6 +197,7 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2308.09649"
     code: "https://github.com/yunhak0/muse"
     year: "2023"
+    selected: "no"
 
   - title: "S-Mixup: Structural Mixup for Graph Neural Networks"
     authors: "Junghurn Kim*, <b>Sukwon Yun*</b>, Chanyoung Park"
@@ -180,6 +205,7 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2308.08097"
     code: "https://github.com/SukwonYun/S-Mixup"
     year: "2023"
+    selected: "no"
   
   - title: "Single-cell RNA-seq data imputation using Feature Propagation"
     authors: "<b>Sukwon Yun*</b>, Junseok Lee*, Chanyoung Park"
@@ -188,6 +214,7 @@ papers:
     code: "https://github.com/junseok0207/scfp"
     slides: "/assets/publications/2023_scfp/slides_update.pdf"
     year: "2023"
+    selected: "yes"
 
   - title: "MELT: Mutual Enhancement of Long-Tailed User and Item for Sequential Recommendation"
     authors: "Kibum Kim, Dongmin Hyun, <b>Sukwon Yun</b>, Chanyoung Park"
@@ -195,6 +222,7 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2304.08382"
     code: "https://github.com/rlqja1107/melt"
     year: "2023"
+    selected: "no"
   
   - title: "LTE4G: Long-Tail Experts for Graph Neural Networks"
     authors: "<b>Sukwon Yun</b>, Kibum Kim, Kanghoon Yoon, Chanyoung Park"
@@ -202,4 +230,5 @@ papers:
     paper_pdf: "https://arxiv.org/abs/2208.10205"
     code: "https://github.com/SukwonYun/LTE4G"
     year: "2023"
+    selected: "yes"
   

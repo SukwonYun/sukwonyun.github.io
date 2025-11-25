@@ -6,7 +6,7 @@ title: Home
 <div class="docs-section" id="bio">
   <h4>Bio</h4>
   <p>
-  I am a Ph.D. student  at the <a href="https://cs.unc.edu/" target="_blank">University of North Carolina, Chapel Hill</a>, where I am fortunate to be advised by
+  I am a graduate student at the <a href="https://cs.unc.edu/" target="_blank">University of North Carolina, Chapel Hill</a>, where I am fortunate to be advised by
   <a href="https://tianlong-chen.github.io/" target="_blank">Prof. Tianlong Chen</a>. I was also a research intern at Regev Lab, <a href="https://www.gene.com/" target="_blank">Genentech</a>, working with <a href="https://www.roche.com/about/leadership/aviv-regev" target="_blank">Prof. Aviv Regev</a> and <a href="https://scholar.google.com/citations?user=Ic2ZEB0AAAAJ&hl=en" target="_blank">Dr. Russell Littman</a>.
   
   Prior to UNC, I obtained an M.S. in ISysE at 
@@ -108,8 +108,9 @@ title: Home
   </p>
 
   <ul class="tab-nav">
-    <li><div class="button" data-ref="#papers-preprint">Preprint</div></li>
-    <li><div class="button active" data-ref="#papers-2025">2025</div></li>
+    <!-- <li><div class="button" data-ref="#papers-preprint">Preprint</div></li> -->
+    <li><div class="button active" data-ref="#papers-selected">2025</div></li>
+    <li><div class="button" data-ref="#papers-2025">2025</div></li>
     <li><div class="button" data-ref="#papers-2024">2024</div></li>
     <li><div class="button" data-ref="#papers-2023">2023-Past</div></li>
     <li><div class="button" data-ref="#papers-all">All</div></li>
@@ -117,8 +118,8 @@ title: Home
 
   <div class="tab-content">
     <!-- Tab: Preprint -->
-    <div class="tab-pane" id="papers-preprint">
-      {% assign paperspreprint = site.data.publications.papers | where: "year", "preprint" %}
+    <div class="tab-pane" id="papers-selected">
+      {% assign paperspreprint = site.data.publications.papers | where: "selected", "yes" %}
       {% for paper in paperspreprint %}
         <div class="paper">
           <p class="title"><b>{{ paper.title }}</b></p>
