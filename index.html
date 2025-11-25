@@ -9,7 +9,7 @@ title: Home
   I am a graduate student at the <a href="https://cs.unc.edu/" target="_blank">University of North Carolina, Chapel Hill</a>, where I am fortunate to be advised by
   <a href="https://tianlong-chen.github.io/" target="_blank">Prof. Tianlong Chen</a>. I was also a research intern at Regev Lab, <a href="https://www.gene.com/" target="_blank">Genentech</a>, working with <a href="https://www.roche.com/about/leadership/aviv-regev" target="_blank">Prof. Aviv Regev</a> and <a href="https://scholar.google.com/citations?user=Ic2ZEB0AAAAJ&hl=en" target="_blank">Dr. Russell Littman</a>.
   
-  Prior to UNC, I obtained an M.S. in ISysE at 
+  Prior to UNC, I received my M.S. in ISysE at 
   <a href="https://www.kaist.ac.kr/en/" target="_blank">KAIST</a>, advised by 
   <a href="https://dsail.kaist.ac.kr/professor/" target="_blank">Prof. Chanyoung Park</a>. 
   
@@ -118,9 +118,9 @@ title: Home
 
   <div class="tab-content">
     <!-- Tab: Preprint -->
-    <div class="tab-pane" id="papers-selected">
-      {% assign paperspreprint = site.data.publications.papers | where: "selected", "yes" %}
-      {% for paper in paperspreprint %}
+    <div class="tab-pane active" id="papers-selected">
+      {% assign papersselected = site.data.publications.papers | where: "selected", "yes" %}
+      {% for paper in papersselected %}
         <div class="paper">
           <p class="title"><b>{{ paper.title }}</b></p>
           <p>{{ paper.authors }}</p>
@@ -138,7 +138,7 @@ title: Home
     </div>
 
     <!-- Tab: 2025 -->
-    <div class="tab-pane active" id="papers-2025">
+    <div class="tab-pane" id="papers-2025">
       {% assign papers2025 = site.data.publications.papers | where: "year", "2025" %}
       {% for paper in papers2025 %}
         <div class="paper">
