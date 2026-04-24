@@ -9,8 +9,19 @@
   }
 }
 
-/* Override dark mode preference - force light mode always */
+/* FORCE LIGHT MODE ALWAYS - Override any dark mode */
+html, body {
+  background-color: #f0eee6 !important;
+  color: #141413 !important;
+}
+
+/* Override dark mode preference completely */
 @media (prefers-color-scheme: dark) {
+  html, body, header, footer, .content-wrapper, main, article, section, div {
+    background-color: #f0eee6 !important;
+    color: #141413 !important;
+  }
+  
   :root {
     /* Force light mode variables even when browser is in dark mode */
     --bg-color: #f0eee6 !important;
@@ -31,18 +42,20 @@
     --muted-text-color: #666666 !important;
   }
   
-  /* Additional forced overrides for specific elements */
-  body {
+  /* Force all elements to light mode */
+  * {
     background-color: #f0eee6 !important;
     color: #141413 !important;
   }
   
-  header {
-    background-color: #f0eee6 !important;
+  /* Specific overrides for links to maintain styling */
+  a {
+    color: #141413 !important;
   }
   
-  footer {
-    background-color: #f0eee6 !important;
+  /* Override any element that might have dark background */
+  h1, h2, h3, h4, h5, h6, p, ul, li, span {
+    color: #141413 !important;
   }
 }
 

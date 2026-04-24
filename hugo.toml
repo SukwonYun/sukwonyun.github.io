@@ -11,7 +11,7 @@ mainSections = ['blogs']
 
 [params]
   description = "Sukwon Yun - PhD student at UNC-Chapel Hill. Research in efficient AI computing and ML for science."
-  colorScheme = "toggle"
+  colorScheme = "light"
   katex = true
 
   [params.author]
