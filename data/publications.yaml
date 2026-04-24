@@ -1,0 +1,53 @@
+- citation: '<b>Sukwon Yun</b>, Jie Peng, Pingzhi Li, Wendong Fan, Jie Chen, James Zou, Guohao Li, Tianlong Chen, "Graph-of-Agents: A Graph-Based Framework for Multi-Agent LLM Collaboration"'
+  venue: 'ICLR 2026'
+  award: ""
+  links: 
+    - text: "Paper"
+      url: "https://arxiv.org/abs/2604.17148"
+    - text: "Code"
+      url: "https://github.com/UNITES-Lab/GoA"
+
+# - citation: 'Zunpeng Liu*, Shanshan Zhang*, Benjamin T. James, Kyriaki Galani, Riley J. Mangan, Stuart Benjamin Fass, Chuqian Liang, Manoj M Wagle, Carles A. Boix, Yosuke Tanigawa, <b>Sukwon Yun</b>, Yena Sung, Xushen Xiong, Na Sun, Lei Hou, Martin Wohlwend, Mufan Qiu, Xikun Han, Lei Xiong, Efthalia Preka, Lei Huang, William F. Li, Li-Lun Ho, Amy Grayson, Julio Mantero, Alexey Kozlenkov, Hansruedi Mathys, Tianlong Chen, Stella Dracheva, David A. Bennett, Li-Huei Tsai, Manolis Kellis, "Single-cell multiregion epigenomic rewiring in Alzheimer’s disease progression and cognitive resilience"'
+#   venue: 'Cell 2025'
+#   award: ""
+#   links:
+#     - text: "Paper"
+#       url: "https://www.cell.com/cell/fulltext/S0092-8674(25)00733-0"
+#     - text: "Code"
+#       url: "https://github.com/ZunpengLiu/Multi-region_AD"
+
+- citation: 'Zunpeng Liu*, Shanshan Zhang*, ..., <b>Sukwon Yun</b>, ..., Manolis Kellis, "Single-cell multiregion epigenomic rewiring in Alzheimer’s disease progression and cognitive resilience"'
+  venue: 'Cell 2025'
+  award: ""
+  links:
+    - text: "Paper"
+      url: "https://www.cell.com/cell/fulltext/S0092-8674(25)00733-0"
+    - text: "Code"
+      url: "https://github.com/ZunpengLiu/Multi-region_AD"
+
+- citation: '<b>Sukwon Yun</b>, Inyoung Choi, Jie Peng, Yangfan Wu, Jingxuan Bao, Qiyiwen Zhang, Jiayi Xin, Qi Long, Tianlong Chen, "Flex-MoE: Modeling Arbitrary Modality Combination via the Flexible Mixture-of-Experts"'
+  venue: 'NeurIPS 2024'
+  award: "(Spotlight)"
+  links:
+    - text: "Paper"
+      url: "https://www.arxiv.org/abs/2410.08245"
+    - text: "Code"
+      url: "https://github.com/UNITES-Lab/Flex-MoE"
+
+- citation: '<b>Sukwon Yun</b>, Jie Peng, Alexandro Trevino, Chanyoung Park, Tianlong Chen, "Mew: Multiplexed Immunofluorescence Image Analysis through an Efficient Multiplex Network"'
+  venue: "ECCV 2024"
+  award: ""
+  links:
+    - text: "Paper"
+      url: "https://arxiv.org/abs/2407.17857"
+    - text: "Code"
+      url: "https://github.com/UNITES-Lab/Mew"
+
+- citation: '<b>Sukwon Yun*</b>, Junseok Lee*, Chanyoung Park, "Single-cell RNA-seq data imputation using Feature Propagation"'
+  venue: "ICML 2023 WCB"
+  award: "(Best Paper Award)"
+  links:
+    - text: "Paper"
+      url: "https://arxiv.org/abs/2307.10037"
+    - text: "Code"
+      url: "https://github.com/Junseok0207/scFP"

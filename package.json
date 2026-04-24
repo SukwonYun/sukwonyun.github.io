@@ -1,0 +1,23 @@
+{
+  "name": "sukwonyun-github-io",
+  "version": "2.0.0",
+  "description": "Personal website and blog",
+  "scripts": {
+    "dev": "hugo server -D",
+    "serve": "hugo server",
+    "build": "hugo --gc --minify",
+    "preview": "hugo server --gc --minify",
+    "clean": "rm -rf public resources/_gen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sukwonyun/sukwonyun.github.io.git"
+  },
+  "keywords": [
+    "blog",
+    "hugo",
+    "personal-website"
+  ],
+  "author": "Sukwon Yun",
+  "license": "MIT"
+}

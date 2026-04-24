@@ -1,0 +1,36 @@
+baseURL = 'https://sukwonyun.github.io/'
+languageCode = 'en-us'
+title = "Sukwon Yun"
+theme = 'dario'
+copyright = 'Webpage template borrows from <a href="https://darioamodei.com/">Dario Amodei</a>.'
+
+mainSections = ['blogs']
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  description = "Sukwon Yun - PhD student at UNC-Chapel Hill. Research in efficient AI computing and ML for science."
+  colorScheme = "toggle"
+  katex = true
+
+  [params.author]
+    name = "Sukwon Yun"
+    email = "sukwon@cs.washington.edu"
+    twitter = "@pingzli"
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    codeFences = true
+    guessSyntax = true
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['$$', '$$']]
+      inline = [['$', '$']]
+
+[taxonomies]
+  tag = "tags"

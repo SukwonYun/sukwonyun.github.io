@@ -1,0 +1,15 @@
+<div class="math-display">
+  {{- .Inner -}}
+</div>
+<script>
+(function(){
+  var el = document.currentScript.previousElementSibling;
+  if (typeof katex !== "undefined") {
+    katex.render(el.textContent.trim(), el, {
+      displayMode: true,
+      macros: {"\\argmax":"\\operatorname*{argmax}","\\argmin":"\\operatorname*{argmin}"},
+      throwOnError: false
+    });
+  }
+})();
+</script>

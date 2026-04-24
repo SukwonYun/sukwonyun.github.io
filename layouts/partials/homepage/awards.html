@@ -1,0 +1,8 @@
+<section class="homepage-section" id="awards">
+  <h2>Awards</h2>
+  <ul>
+    {{ range .Site.Data.awards }}
+    <li>{{ .description | safeHTML }}</li>
+    {{ end }}
+  </ul>
+</section>

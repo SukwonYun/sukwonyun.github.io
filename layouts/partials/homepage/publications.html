@@ -1,0 +1,12 @@
+<section class="homepage-section" id="publications">
+  <h2>Selected publications</h2>
+  <p class="pub-note">(* = equal contribution)</p>
+  <ul>
+    {{ range .Site.Data.publications }}
+    <li>
+      {{ .citation | safeHTML }}<br/>
+      {{ .venue | safeHTML }}{{ with .award }} <span class="pub-badge">{{ . }}</span>{{ end }}{{ range .links }} / <a href="{{ .url }}">{{ .text }}</a>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</section>

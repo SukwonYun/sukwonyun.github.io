@@ -1,0 +1,7 @@
+.idea
+CLAUDE.md
+.claude
+public/
+resources/_gen/
+.hugo_build.lock
+.DS_Store

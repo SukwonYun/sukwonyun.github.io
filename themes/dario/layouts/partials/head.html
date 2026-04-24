@@ -1,0 +1,58 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{- $author := partialCached "objects/author.html" . .Site.Language.Lang -}}
+    {{- with $author.name }}
+    <meta name="author" content="{{ . }}">
+    {{- end }}
+
+    {{- $page := partialCached "objects/page.html" . .RelPermalink -}}
+    <meta name="description" content="{{- $page.description -}}">
+    <title>{{ $page.title }}</title>
+
+    {{- if strings.HasSuffix .RelPermalink "/404.html" }}
+    <meta name="robots" content="noindex, nofollow">
+    {{- else }}
+    <link rel="canonical" href="{{ .Permalink }}">
+
+        {{- if not .Site.Params.disableSocialMeta }}
+{{ partial "opengraph.html" . }}
+        {{- end }}
+    {{- end }}
+
+    {{- if not .Site.Params.disableFontPreload }}
+    <link rel="preload" href="{{ "fonts/Newsreader.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+    {{- end }}
+
+    {{- $defaultCSS := resources.Get "css/default.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $defaultCSS.RelPermalink }}" integrity="{{ $defaultCSS.Data.Integrity }}">
+    {{- with resources.Get "css/custom.css" }}
+        {{- with . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+        {{- end }}
+    {{- end }}
+
+    {{- if fileExists "static/favicon.ico" }}
+    <link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | relURL }}">
+    {{- end }}
+    {{- if fileExists "static/apple-touch-icon.png" }}
+    <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+    {{- end }}
+
+    {{- if or (not .Site.Params.colorScheme) (eq .Site.Params.colorScheme "toggle") }}
+    {{- $darkmodeJS := resources.Get "js/darkmode.js" | minify | fingerprint }}
+    <script src="{{ $darkmodeJS.RelPermalink }}" integrity="{{ $darkmodeJS.Data.Integrity }}" defer></script>
+    {{- end }}
+
+    {{- with .Content }}
+        {{- if or (in . "id=\"fnref") (in . "class=\"footnote-ref\"") }}
+            {{- $footnotesJS := resources.Get "js/footnotes.js" | minify | fingerprint }}
+    <script src="{{ $footnotesJS.RelPermalink }}" integrity="{{ $footnotesJS.Data.Integrity }}" defer></script>
+        {{- end }}
+    {{- end }}
+
+    {{- if templates.Exists "partials/nonstdmeta.html" }}
+{{ partial "nonstdmeta.html" . }}
+    {{- end }}
+</head>
