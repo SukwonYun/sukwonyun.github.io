@@ -10,14 +10,14 @@ mainSections = ['blogs']
   pagerSize = 10
 
 [params]
-  description = "Sukwon Yun - PhD student at UNC-Chapel Hill. Research in efficient AI computing and ML for science."
+  description = "Sukwon Yun - PhD student at UW."
   colorScheme = "light"
   katex = true
 
   [params.author]
     name = "Sukwon Yun"
     email = "sukwon@cs.washington.edu"
-    twitter = "@pingzli"
+    twitter = "@sukwon_yun"
 
 [markup]
   [markup.highlight]
