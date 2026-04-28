@@ -9,54 +9,37 @@
   }
 }
 
-/* FORCE LIGHT MODE ALWAYS - Override any dark mode */
-html, body {
-  background-color: #f0eee6 !important;
-  color: #141413 !important;
+/* Default to light mode, override browser dark mode preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Override dark mode preference to default to light */
+    --bg-color: #f0eee6;
+    --text-color: #141413;
+    --border-color: #e6e4dd;
+    --footnote-bg-color: rgba(0, 0, 0, 0.08);
+    --footnote-hover-bg-color: rgba(0, 0, 0, 0.15);
+    --tooltip-bg-color: #f9f9f9;
+    --tooltip-text-color: #333;
+    --tooltip-shadow-color: rgba(0, 0, 0, 0.15);
+    --subscribe-form-bg: transparent;
+    --subscribe-form-text: #141413;
+    --subscribe-button-bg: #141413;
+    --subscribe-button-text: #f0efea;
+    --invert-percentage: 0%;
+    --code-bg: rgb(223, 223, 223);
+    --hljs-bg: rgb(28, 29, 33);
+    --muted-text-color: #666666;
+  }
 }
 
-/* Override dark mode preference completely */
-@media (prefers-color-scheme: dark) {
-  html, body, header, footer, .content-wrapper, main, article, section, div {
-    background-color: #f0eee6 !important;
-    color: #141413 !important;
-  }
-  
-  :root {
-    /* Force light mode variables even when browser is in dark mode */
-    --bg-color: #f0eee6 !important;
-    --text-color: #141413 !important;
-    --border-color: #e6e4dd !important;
-    --footnote-bg-color: rgba(0, 0, 0, 0.08) !important;
-    --footnote-hover-bg-color: rgba(0, 0, 0, 0.15) !important;
-    --tooltip-bg-color: #f9f9f9 !important;
-    --tooltip-text-color: #333 !important;
-    --tooltip-shadow-color: rgba(0, 0, 0, 0.15) !important;
-    --subscribe-form-bg: transparent !important;
-    --subscribe-form-text: #141413 !important;
-    --subscribe-button-bg: #141413 !important;
-    --subscribe-button-text: #f0efea !important;
-    --invert-percentage: 0% !important;
-    --code-bg: rgb(223, 223, 223) !important;
-    --hljs-bg: rgb(28, 29, 33) !important;
-    --muted-text-color: #666666 !important;
-  }
-  
-  /* Force all elements to light mode */
-  * {
-    background-color: #f0eee6 !important;
-    color: #141413 !important;
-  }
-  
-  /* Specific overrides for links to maintain styling */
-  a {
-    color: #141413 !important;
-  }
-  
-  /* Override any element that might have dark background */
-  h1, h2, h3, h4, h5, h6, p, ul, li, span {
-    color: #141413 !important;
-  }
+/* Show the dark mode toggle switch */
+.toggle-switch {
+  display: inline-block !important;
+}
+
+.toggle-switch.visible {
+  display: inline-block !important;
+  visibility: visible !important;
 }
 
 /* Widen homepage content area for publication lists */
