@@ -3,6 +3,7 @@ languageCode = 'en-us'
 title = "Sukwon Yun"
 theme = 'dario'
 copyright = 'Webpage template borrows from <a href="https://darioamodei.com/">Dario Amodei</a>.'
+googleAnalytics = "G-2W4335FK3T"
 
 mainSections = ['blogs']
 
