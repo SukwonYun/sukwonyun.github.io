@@ -7,6 +7,15 @@
     - text: "Code"
       url: "https://github.com/UNITES-Lab/GoA"
 
+- citation: 'Justin Chih-Yao Chen*, <b>Sukwon Yun*</b>, Elias Stengel-Eskin*, Tianlong Chen, Mohit Bansal, "Symbolic Mixture-of-Experts: Adaptive Skill-based Routing for Heterogeneous Reasoning"'
+  venue: 'ICML 2026'
+  award: ""
+  links: 
+    - text: "Paper"
+      url: "https://arxiv.org/abs/2503.05641"
+    - text: "Code"
+      url: "https://github.com/dinobby/Symbolic-MoE/"
+
 # - citation: 'Zunpeng Liu*, Shanshan Zhang*, Benjamin T. James, Kyriaki Galani, Riley J. Mangan, Stuart Benjamin Fass, Chuqian Liang, Manoj M Wagle, Carles A. Boix, Yosuke Tanigawa, <b>Sukwon Yun</b>, Yena Sung, Xushen Xiong, Na Sun, Lei Hou, Martin Wohlwend, Mufan Qiu, Xikun Han, Lei Xiong, Efthalia Preka, Lei Huang, William F. Li, Li-Lun Ho, Amy Grayson, Julio Mantero, Alexey Kozlenkov, Hansruedi Mathys, Tianlong Chen, Stella Dracheva, David A. Bennett, Li-Huei Tsai, Manolis Kellis, "Single-cell multiregion epigenomic rewiring in Alzheimer’s disease progression and cognitive resilience"'
 #   venue: 'Cell 2025'
 #   award: ""
